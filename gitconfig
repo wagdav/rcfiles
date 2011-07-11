@@ -1,0 +1,13 @@
+[user]
+    name = David Wagner
+    email = david.wagner@epfl.ch
+
+[url "ssh://lac/~dwagner/projects/"]
+    insteadOf = projects:
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[alias]
+    wdiff = diff --color-words

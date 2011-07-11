@@ -1,0 +1,17 @@
+#!/usr/bin/python
+import sys, os
+
+modes = {
+    'dual': 'xrandr --output DVI-I-1 --left-of VGA-1',
+    'clone': 'xrandr --output DVI-I-1 --same-as VGA-1',
+}
+
+def print_help():
+    print "Use: %s [%s]" % (sys.argv[0], ' | '.join(sorted(modes.keys())))
+
+try:
+    mode = sys.argv[1]
+    os.system(modes[mode])
+except IndexError:
+    print_help()
+
