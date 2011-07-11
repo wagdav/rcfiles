@@ -1,1 +1,20 @@
 Configuration files
+
+Git:
+* gitconfig -> $HOME/.gitconfig
+
+
+Vi:
+* gvimrc -> $HOME/.gvimrc
+* vimrc -> $HOME/.vimrc
+
+
+XMonad & XMobar:
+* xmobarrc -> $HOME/.xmobarrc
+* xmonad.hs -> $HOME/.xmonad/xmonad.hs
+
+X:
+* Xdefaults -> $HOME/.XDefaults
+
+Miscellaneous:
+* set_screen -> $HOME/set_screen
