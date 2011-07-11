@@ -1,0 +1,20 @@
+Config { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u"
+       , bgColor = "#000000"
+       , fgColor = "#C9A34E"
+       , position = Top 
+       , lowerOnStart = True
+       , commands =
+            [ Run Cpu ["-L","3","-H","50",
+                "--normal","#429942","--high","#A36666"] 10
+            , Run Memory ["-t","Mem: <usedratio>%"] 10
+    		, Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+            , Run Battery [] 10 
+            , Run StdinReader
+            , Run Weather "LSGG"
+                 ["-t","<station>: <tempC>C","-L","18","-H","25","--normal", "green","--high","red","--low","lightblue"] 36000
+            , Run Com "mpc" ["current"] "" 20
+        ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{%battery% <fc=#429942>|</fc> %cpu% <fc=#429942>|</fc> %memory% <fc=#429942>|</fc> %LSGG% <fc=#429942>|</fc> <fc=#6694e3>%mpc%</fc> <fc=#429942>|</fc> %date%"
+       }
