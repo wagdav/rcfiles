@@ -9,6 +9,7 @@ import XMonad.Prompt.XMonad
 import qualified Data.Map as M
 
 import XMonad.Actions.CycleWS
+import Control.Monad
 import XMonad.Util.Scratchpad
 import qualified XMonad.StackSet as W
 
@@ -47,10 +48,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     , ((0, 0x1008ff16), spawn "mpc prev") -- previous song
     , ((0, 0x1008ff17), spawn "mpc next") -- next song
     -- CycleWS
-    , ((modm, xK_z), toggleWS)
+    , ((modm, xK_z), toggleSkip ["NSP"])
     -- ScratchPad
     , ((modm, xK_s), scratchpadSpawnAction defaultConfig)
     ]
+
+-- toggle any workspace but scratchpad
+toggleSkip :: [WorkspaceId] -> X ()
+toggleSkip skips = do
+    hs <- gets (flip skipTags skips . W.hidden . windowset)
+    unless (null hs) (windows . W.view . W.tag $ head hs)
+
 newKeys x = M.union
      (keys defaultConfig x)
      (M.fromList (myKeys x))
