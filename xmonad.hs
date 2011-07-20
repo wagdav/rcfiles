@@ -34,6 +34,7 @@ myPP = xmobarPP
     { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"
     , ppTitle = xmobarColor "green" "" . shorten 80
     , ppUrgent = xmobarColor "red" "" . ('^':)
+    , ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
     }
 
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
