@@ -9,6 +9,8 @@ import XMonad.Prompt.XMonad
 import qualified Data.Map as M
 
 import XMonad.Actions.CycleWS
+import XMonad.Util.Scratchpad
+import qualified XMonad.StackSet as W
 
 -- The main function.
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey 
@@ -22,7 +24,10 @@ myManageHook = composeAll
     , className =? "Ipython" --> doFloat
     , title =? "File Transfers" --> doFloat
     ]
-newManageHook = myManageHook <+> manageHook defaultConfig
+newManageHook =
+    scratchpadManageHook (W.RationalRect 0.1 0.25 0.8 0.5) <+>
+    myManageHook <+>
+    manageHook defaultConfig
 
 -- It determines what's being written to the bar.
 myPP = xmobarPP
@@ -42,6 +47,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     , ((0, 0x1008ff17), spawn "mpc next") -- next song
     -- CycleWS
     , ((modm, xK_z), toggleWS)
+    -- ScratchPad
+    , ((modm, xK_s), scratchpadSpawnAction defaultConfig)
     ]
 newKeys x = M.union
      (keys defaultConfig x)
