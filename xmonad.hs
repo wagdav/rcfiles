@@ -1,24 +1,44 @@
 import XMonad
+
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.UrgencyHook
+import XMonad.Hooks.ManageDocks
 
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
-import qualified Data.Map as M
-
 import XMonad.Actions.CycleWS
-import Control.Monad
+
+import XMonad.Util.Run
 import XMonad.Util.Scratchpad
 import qualified XMonad.StackSet as W
 
--- The main function.
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey 
-    (withUrgencyHook NoUrgencyHook $ myConfig)
+import XMonad.Layout.NoBorders
 
--- Command to launch the bar.
-myBar = "xmobar"
+import qualified Data.Map as M
+import Control.Monad
+import System.IO
+
+-- The main function.
+main = do
+    xmproc <- spawnPipe "xmobar"
+    xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
+     { modMask = mod4Mask
+    , borderWidth=2
+    , manageHook = newManageHook
+    , startupHook = setWMName "LG3D"
+    , keys = newKeys
+    , logHook = myLogHook xmproc
+    , layoutHook = myLayout
+    }
+
+myLayout = avoidStruts $ tiled ||| Mirror tiled ||| Full
+    where
+        tiled = smartBorders (Tall nmaster delta ratio)
+        nmaster = 1
+        ratio = 1/2
+        delta = 3/100
 
 myManageHook = composeAll
     [ className =? "com-mathworks-util-PostVMInit" --> doFloat
@@ -31,14 +51,16 @@ newManageHook =
     manageHook defaultConfig
 
 -- It determines what's being written to the bar.
-myPP = xmobarPP
+myLogHook :: Handle -> X ()
+myLogHook h = dynamicLogWithPP $ customPP { ppOutput = hPutStrLn h }
+
+customPP :: PP
+customPP = defaultPP
     { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"
     , ppTitle = xmobarColor "green" "" . shorten 80
-    , ppUrgent = xmobarColor "red" "" . ('^':)
+    , ppUrgent = xmobarColor "red" "" . wrap "!" "!"
     , ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
     }
-
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 -- Key bindings
 myKeys conf@(XConfig {XMonad.modMask = modm}) = 
@@ -62,12 +84,4 @@ toggleSkip skips = do
 newKeys x = M.union
      (keys defaultConfig x)
      (M.fromList (myKeys x))
-
-myConfig = defaultConfig 
-    { modMask = mod4Mask
-    , borderWidth=2
-    , manageHook = newManageHook
-    , startupHook = setWMName "LG3D"
-    , keys = newKeys
-    }
 
