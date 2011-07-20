@@ -9,6 +9,7 @@ import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
 import XMonad.Actions.CycleWS
+import XMonad.Actions.GridSelect
 
 import XMonad.Util.Run
 import XMonad.Util.Scratchpad
@@ -73,6 +74,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     , ((modm, xK_z), toggleSkip ["NSP"])
     -- ScratchPad
     , ((modm, xK_s), scratchpadSpawnAction defaultConfig)
+    -- GridSelect
+    , ((modm , xK_f), goToSelected defaultGSConfig)
     ]
 
 -- toggle any workspace but scratchpad
