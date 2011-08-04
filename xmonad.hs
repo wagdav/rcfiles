@@ -13,6 +13,7 @@ import XMonad.Actions.GridSelect
 
 import XMonad.Util.Run
 import XMonad.Util.Scratchpad
+import XMonad.Util.NamedScratchpad
 import qualified XMonad.StackSet as W
 
 import XMonad.Layout.NoBorders
@@ -48,6 +49,7 @@ myManageHook = composeAll
     ]
 newManageHook =
     scratchpadManageHook (W.RationalRect 0.1 0.25 0.8 0.5) <+>
+    namedScratchpadManageHook scratchpads <+>
     myManageHook <+>
     manageHook defaultConfig
 
@@ -60,7 +62,7 @@ customPP = defaultPP
     { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"
     , ppTitle = xmobarColor "green" "" . shorten 80
     , ppUrgent = xmobarColor "red" "" . wrap "!" "!"
-    , ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
+    , ppSort = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort defaultPP
     }
 
 -- Key bindings
@@ -71,9 +73,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     , ((0, 0x1008ff16), spawn "mpc prev") -- previous song
     , ((0, 0x1008ff17), spawn "mpc next") -- next song
     -- CycleWS
-    , ((modm, xK_z), toggleSkip ["NSP"])
+    , ((modm, xK_quoteleft), toggleSkip ["NSP"])
     -- ScratchPad
     , ((modm, xK_s), scratchpadSpawnAction defaultConfig)
+    , ((modm, xK_v), namedScratchpadAction scratchpads "editor")
+    , ((modm, xK_b), namedScratchpadAction scratchpads "editor-lac")
+    , ((modm, xK_Insert), namedScratchpadAction scratchpads "music")
     -- GridSelect
     , ((modm , xK_f), goToSelected defaultGSConfig)
     ]
@@ -88,3 +93,16 @@ newKeys x = M.union
      (keys defaultConfig x)
      (M.fromList (myKeys x))
 
+scratchpads :: [NamedScratchpad]
+scratchpads =
+    [ NS "editor" "gvim --role Editor --servername crpppc312"
+             (role =? "Editor")
+             (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
+    , NS "editor-lac" "ssh lac 'gvim --role lac-editor --servername lac'"
+             (role =? "lac-editor")
+             (nonFloating)
+    , NS "music" "x-terminal-emulator -title Music -e ncmpc --colors"
+             (title =? "Music")
+             (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
+    ]
+    where role = stringProperty "WM_WINDOW_ROLE"
