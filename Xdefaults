@@ -47,3 +47,5 @@ URxvt*scrollstyle:rxvt
 URxvt*internalBorder:0
 URxvt*externalBorder:0
 
+URxvt*fading:30
+
