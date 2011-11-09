@@ -16,5 +16,8 @@ XMonad & XMobar:
 X:
 * Xdefaults -> $HOME/.XDefaults
 
+xpdf:
+* xpdfrc -> $HOME/.xpdfrc
+
 Miscellaneous:
 * set_screen -> $HOME/set_screen
