@@ -19,6 +19,12 @@ import Control.Monad
 import XMonad.Layout.GridVariants as GV
 import XMonad.Layout.ToggleLayouts
 
+
+import qualified XMonad.Prompt         as P
+import qualified XMonad.Actions.Submap as SM
+import qualified XMonad.Actions.Search as S
+import qualified Data.Map as M
+
 -- The main function.
 main = do
     xmproc <- spawnPipe "xmobar"
@@ -46,15 +52,20 @@ myKeys =
         -- ScratchPad
         , ((mod4Mask, xK_s), scratchpadSpawnAction defaultConfig)
         , ((mod4Mask, xK_v), namedScratchpadAction scratchpads "editor")
-        , ((mod4Mask, xK_b), namedScratchpadAction scratchpads "editor-lac")
+        , ((mod4Mask, xK_c), namedScratchpadAction scratchpads "editor-lac")
         , ((mod4Mask, xK_Insert), namedScratchpadAction scratchpads "music")
         , ((mod4Mask, xK_o), namedScratchpadAction scratchpads "mail")
         -- GridSelect
         , ((mod4Mask , xK_f), goToSelected defaultGSConfig)
 
-        , ((mod4Mask .|. shiftMask, xK_g), sendMessage $ Toggle "Grid")
+        , ((mod4Mask, xK_F12), sendMessage $ Toggle "Full")
+
+        -- search
+        , ((mod4Mask, xK_slash), SM.submap $ searchEngineMap $
+                S.promptSearch P.defaultXPConfig)
+        , ((mod4Mask .|. shiftMask, xK_slash), SM.submap $ searchEngineMap $ S.selectSearch)
         ]
-        ++ switchNonGreedyView
+        -- ++ switchNonGreedyView
 
 
 switchNonGreedyView = [
@@ -63,9 +74,8 @@ switchNonGreedyView = [
     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
     ]
 
-
-myLayout = smartBorders $ avoidStruts $
-            toggleLayouts grid (tiled ||| Mirror tiled ||| Full ||| grid)
+myLayout = toggle $ smartBorders $ avoidStruts $
+            tiled ||| Mirror tiled ||| Full ||| grid
     where
         tiled = (Tall nmaster delta ratio)
         nmaster = 1
@@ -73,6 +83,7 @@ myLayout = smartBorders $ avoidStruts $
         delta = 3/100
 
         grid = GV.Grid (1.25)
+        toggle = toggleLayouts (noBorders Full)
 
 
 myManageHook =
@@ -125,3 +136,16 @@ scratchpads =
              (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
     ]
     where role = stringProperty "WM_WINDOW_ROLE"
+
+
+searchEngineMap method = M.fromList $
+       [ ((0, xK_g), method S.google)
+       , ((0, xK_h), method S.hoogle)
+       , ((0, xK_w), method S.wikipedia)
+       , ((0, xK_i), method S.imdb)
+       , ((0, xK_s), method S.scholar)
+       , ((0, xK_m), method S.maps)
+       , ((0, xK_d), method S.deb)
+       , ((0, xK_y), method S.youtube)
+       , ((0, xK_d), method S.dictionary)
+       ]
