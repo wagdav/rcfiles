@@ -16,6 +16,8 @@ import qualified XMonad.StackSet as W
 import XMonad.Layout.NoBorders
 
 import Control.Monad
+import XMonad.Layout.GridVariants as GV
+import XMonad.Layout.ToggleLayouts
 
 -- The main function.
 main = do
@@ -49,6 +51,8 @@ myKeys =
         , ((mod4Mask, xK_o), namedScratchpadAction scratchpads "mail")
         -- GridSelect
         , ((mod4Mask , xK_f), goToSelected defaultGSConfig)
+
+        , ((mod4Mask .|. shiftMask, xK_g), sendMessage $ Toggle "Grid")
         ]
         ++ switchNonGreedyView
 
@@ -60,12 +64,15 @@ switchNonGreedyView = [
     ]
 
 
-myLayout = smartBorders $ avoidStruts $ tiled ||| Mirror tiled ||| Full
+myLayout = smartBorders $ avoidStruts $
+            toggleLayouts grid (tiled ||| Mirror tiled ||| Full ||| grid)
     where
-        tiled = smartBorders (Tall nmaster delta ratio)
+        tiled = (Tall nmaster delta ratio)
         nmaster = 1
-        ratio = 1/2
+        ratio = 2/3
         delta = 3/100
+
+        grid = GV.Grid (1.25)
 
 
 myManageHook =
