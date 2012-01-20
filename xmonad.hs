@@ -19,6 +19,12 @@ import Control.Monad
 import XMonad.Layout.GridVariants as GV
 import XMonad.Layout.ToggleLayouts
 
+
+import qualified XMonad.Prompt         as P
+import qualified XMonad.Actions.Submap as SM
+import qualified XMonad.Actions.Search as S
+import qualified Data.Map as M
+
 -- The main function.
 main = do
     xmproc <- spawnPipe "xmobar"
@@ -53,6 +59,10 @@ myKeys =
         , ((mod4Mask , xK_f), goToSelected defaultGSConfig)
 
         , ((mod4Mask .|. shiftMask, xK_g), sendMessage $ Toggle "Grid")
+
+        -- search
+        , ((mod4Mask, xK_s), SM.submap $ searchEngineMap $ S.promptSearch P.defaultXPConfig)
+        , ((mod4Mask .|. shiftMask, xK_s), SM.submap $ searchEngineMap $ S.selectSearch)
         ]
         ++ switchNonGreedyView
 
@@ -62,7 +72,6 @@ switchNonGreedyView = [
     | (i, k) <- zip myWorkspaces [xK_1 .. xK_9]
     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
     ]
-
 
 myLayout = smartBorders $ avoidStruts $
             toggleLayouts grid (tiled ||| Mirror tiled ||| Full ||| grid)
@@ -125,3 +134,14 @@ scratchpads =
              (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
     ]
     where role = stringProperty "WM_WINDOW_ROLE"
+
+
+searchEngineMap method = M.fromList $
+       [ ((0, xK_g), method S.google)
+       , ((0, xK_h), method S.hoogle)
+       , ((0, xK_w), method S.wikipedia)
+       , ((0, xK_i), method S.imdb)
+       , ((0, xK_s), method S.scholar)
+       , ((0, xK_m), method S.maps)
+       , ((0, xK_d), method S.deb)
+       ]
