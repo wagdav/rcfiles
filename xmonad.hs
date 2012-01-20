@@ -60,7 +60,7 @@ switchNonGreedyView = [
     ]
 
 
-myLayout = avoidStruts $ tiled ||| Mirror tiled ||| Full
+myLayout = smartBorders $ avoidStruts $ tiled ||| Mirror tiled ||| Full
     where
         tiled = smartBorders (Tall nmaster delta ratio)
         nmaster = 1
