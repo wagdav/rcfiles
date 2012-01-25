@@ -122,13 +122,13 @@ toggleSkip skips = do
 -- Scratchpads
 scratchpads :: [NamedScratchpad]
 scratchpads =
-    [ NS "editor" "gvim --role Editor --servername crpppc312"
+    [ NS "editor" "gvim --role Editor --servername 127.0.0.1"
              (role =? "Editor")
              (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
     , NS "editor-lac" "ssh lac 'gvim --role lac-editor --servername lac'"
              (role =? "lac-editor")
              (nonFloating)
-    , NS "music" "x-terminal-emulator -title Music -e ncmpc --colors"
+    , NS "music" "x-terminal-emulator -title Music -e ncmpcpp"
              (title =? "Music")
              (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
     , NS "mail" "x-terminal-emulator -title Mail -e mutt"
@@ -147,5 +147,5 @@ searchEngineMap method = M.fromList $
        , ((0, xK_m), method S.maps)
        , ((0, xK_d), method S.deb)
        , ((0, xK_y), method S.youtube)
-       , ((0, xK_d), method S.dictionary)
+       , ((0, xK_t), method S.dictionary)
        ]
