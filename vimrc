@@ -19,6 +19,8 @@ let g:Tex_ViewRule_pdf = 'xpdf'
 let g:Tex_ViewRule_dvi = 'xdvi'
 let g:Tex_DefaultTargetFormat = 'dvi'
 
+let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode -src-specials $*'
+
 " Set the warning messages to ignore.
 let g:Tex_IgnoredWarnings =
 \"Underfull\n".
@@ -32,3 +34,8 @@ let g:Tex_IgnoredWarnings =
 " This number N says that latex-suite should ignore the first N of the
 " above.
 let g:Tex_IgnoreLevel = 8
+
+
+"VimOrganizer options
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
+au BufEnter *.org            call org#SetOrgFileType()

@@ -1,5 +1,3 @@
-bind h any scrollLeft(16)
-bind l any scrollRight(16)
 bind k any scrollUp(16)
 bind j any scrollDown(16)
 bind t any toggleOutline
