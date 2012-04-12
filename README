@@ -15,6 +15,7 @@ XMonad & XMobar:
 
 X:
 * Xdefaults -> $HOME/.XDefaults
+* xsession -> $HOME/.xsession
 
 xpdf:
 * xpdfrc -> $HOME/.xpdfrc
