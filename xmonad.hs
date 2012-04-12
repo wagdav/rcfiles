@@ -39,7 +39,7 @@ main = do
         } `additionalKeys` myKeys
 
 
-myWorkspaces = ["1:web","2:local","3:local","4:lac","5:lac","6","7","8","9"]
+myWorkspaces = ["1:web","2:local","3:local","4:remote","5:remote","6","7","8","9"]
 
 myKeys =
         -- MPD keys
