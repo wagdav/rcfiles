@@ -64,6 +64,8 @@ myKeys =
         , ((mod4Mask, xK_slash), SM.submap $ searchEngineMap $
                 S.promptSearch P.defaultXPConfig)
         , ((mod4Mask .|. shiftMask, xK_slash), SM.submap $ searchEngineMap $ S.selectSearch)
+        -- xscreensaver
+        , ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
         ]
         -- ++ switchNonGreedyView
 
@@ -95,6 +97,7 @@ myManageHook =
         , title =? "File Transfers" --> doFloat
         , title =? "ImageJ" --> doFloat
         , className =? "Blender" --> doFloat
+        , title =? "xmix" --> doFloat
         ] <+>
     manageDocks <+>
     manageHook defaultConfig
