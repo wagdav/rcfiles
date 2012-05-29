@@ -18,7 +18,7 @@ import XMonad.Layout.NoBorders
 import Control.Monad
 import XMonad.Layout.GridVariants as GV
 import XMonad.Layout.ToggleLayouts
-
+import XMonad.Hooks.ManageHelpers -- isDialog
 
 import qualified XMonad.Prompt         as P
 import qualified XMonad.Actions.Submap as SM
@@ -92,12 +92,14 @@ myManageHook =
     scratchpadManageHook (W.RationalRect 0.1 0.25 0.8 0.5) <+>
     namedScratchpadManageHook scratchpads <+>
     composeAll
-        [ className =? "com-mathworks-util-PostVMInit" --> doFloat
-        , className =? "Ipython" --> doFloat
+        -- prevent new figure windows from stealing focus
+        [ className =? "com-mathworks-util-PostVMInit" --> doFloat <+> doF W.focusDown
+        , className =? "Ipython" --> doFloat <+> doF W.focusDown
         , title =? "File Transfers" --> doFloat
         , title =? "ImageJ" --> doFloat
         , className =? "Blender" --> doFloat
         , title =? "xmix" --> doFloat
+        , isDialog --> doFloat
         ] <+>
     manageDocks <+>
     manageHook defaultConfig
