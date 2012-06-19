@@ -11,3 +11,5 @@
     branch = auto
 [alias]
     wdiff = diff --color-words
+[core]
+    excludesfile = ~/.gitignore_global

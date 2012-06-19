@@ -2,7 +2,7 @@ Configuration files
 
 Git:
 * gitconfig -> $HOME/.gitconfig
-
+* gitignore_global -> $HOME/.gitignore_global
 
 Vi:
 * gvimrc -> $HOME/.gvimrc
