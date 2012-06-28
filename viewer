@@ -1,0 +1,13 @@
+#!/bin/bash
+# Proxy script to call okular from the vim LatexSuite.
+# viewer TARGET_FILE LINE_NUMBER SOURCE_FILE!
+
+OKULAR="/usr/bin/okular --unique"
+
+if [ $# -eq 1 ]; then
+    exec $OKULAR "$1" 2> /dev/null
+elif [ $# -eq 3 ]; then
+    exec $OKULAR "$1#src:$2 $3" 2> /dev/null
+else
+    exec $OKULAR
+fi

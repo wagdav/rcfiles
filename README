@@ -22,3 +22,4 @@ xpdf:
 
 Miscellaneous:
 * set_screen -> $HOME/set_screen
+* viewer -> /usr/local/bin
