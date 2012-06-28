@@ -12,6 +12,10 @@ syntax on
 "Remap \zz to toggle the value of 'scrolloff' between 0 and 999
 :nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>
 
+"Insert date
+nnoremap <F12> "=strftime("%d/%m/%y")<CR>P
+inoremap <F12> <C-R>=strftime("%d/%m/%y")<CR>
+
 " LatexSuite options
 " ==================
 let g:Tex_UseMakefile='1'
