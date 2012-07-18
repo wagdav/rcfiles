@@ -19,9 +19,9 @@ inoremap <F12> <C-R>=strftime("%d/%m/%y")<CR>
 " LatexSuite options
 " ==================
 let g:Tex_UseMakefile='1'
-let g:Tex_ViewRule_pdf = 'xpdf'
-let g:Tex_ViewRule_dvi = 'xdvi'
-let g:Tex_DefaultTargetFormat = 'dvi'
+let g:Tex_ViewRule_pdf = 'viewer'
+let g:Tex_ViewRule_dvi = 'okular'
+let g:Tex_DefaultTargetFormat = 'pdf'
 
 let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode -src-specials $*'
 
@@ -40,6 +40,25 @@ let g:Tex_IgnoredWarnings =
 let g:Tex_IgnoreLevel = 8
 
 
-"VimOrganizer options
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
-au BufEnter *.org            call org#SetOrgFileType()
+" Do make with different makeprg settings.
+" Error lists from each makeprg are combined into one quickfix list.
+" ==================
+command! Pycheck call DoMake('pyflakes', 'pep8')
+function! DoMake(...)
+  update  " save any changes because makeprg checks the file on disk
+  let savemp = &makeprg
+  let qflist = []
+  for prg in a:000
+    let &makeprg = prg . ' %'
+    silent make!
+    let qflist += getqflist()
+  endfor
+  if empty(qflist)
+    cclose
+  else
+    call setqflist(qflist)
+    copen
+    cfirst
+  endif
+  let &makeprg = savemp
+endfunction
