@@ -65,7 +65,7 @@ myKeys =
                 S.promptSearch P.defaultXPConfig)
         , ((mod4Mask .|. shiftMask, xK_slash), SM.submap $ searchEngineMap $ S.selectSearch)
         -- xscreensaver
-        , ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
+        , ((mod4Mask .|. shiftMask, xK_l), spawn "slock")
         ]
         -- ++ switchNonGreedyView
 
