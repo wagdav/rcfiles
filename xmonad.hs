@@ -71,14 +71,6 @@ myKeys =
         , ((mod4Mask, xK_a), sendMessage MirrorShrink)
         , ((mod4Mask, xK_z), sendMessage MirrorExpand)
         ]
-        -- ++ switchNonGreedyView
-
-
-switchNonGreedyView = [
-    ((m .|. mod4Mask, k), windows $ f i) -- Replace 'mod4Mask' with your mod key of choice.
-    | (i, k) <- zip myWorkspaces [xK_1 .. xK_9]
-    , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
-    ]
 
 myLayout = toggle $ smartBorders $ avoidStruts $
             tiled ||| Mirror tiled ||| Full ||| grid
