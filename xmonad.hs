@@ -18,6 +18,7 @@ import XMonad.Layout.NoBorders
 import Control.Monad
 import XMonad.Layout.GridVariants as GV
 import XMonad.Layout.ToggleLayouts
+import XMonad.Layout.ResizableTile
 import XMonad.Hooks.ManageHelpers -- isDialog
 
 import qualified XMonad.Prompt         as P
@@ -66,6 +67,9 @@ myKeys =
         , ((mod4Mask .|. shiftMask, xK_slash), SM.submap $ searchEngineMap $ S.selectSearch)
         -- xscreensaver
         , ((mod4Mask .|. shiftMask, xK_l), spawn "slock")
+        -- key bindings for resizable tall
+        , ((mod4Mask, xK_a), sendMessage MirrorShrink)
+        , ((mod4Mask, xK_z), sendMessage MirrorExpand)
         ]
         -- ++ switchNonGreedyView
 
@@ -79,7 +83,7 @@ switchNonGreedyView = [
 myLayout = toggle $ smartBorders $ avoidStruts $
             tiled ||| Mirror tiled ||| Full ||| grid
     where
-        tiled = (Tall nmaster delta ratio)
+        tiled = (ResizableTall nmaster delta ratio [])
         nmaster = 1
         ratio = 2/3
         delta = 3/100
