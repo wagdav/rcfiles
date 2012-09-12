@@ -62,3 +62,14 @@ function! DoMake(...)
   endif
   let &makeprg = savemp
 endfunction
+
+"command to open my action list
+command! Gtd call SwitchToList()
+function! SwitchToList()
+    let number = bufnr("Dropbox/txt/lists.rst")
+    if number == -1
+        edit $HOME/Dropbox/txt/lists.rst
+    else
+        exe 'buffer' number
+    endif
+endfunction
