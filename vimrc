@@ -40,6 +40,24 @@ let g:Tex_IgnoredWarnings =
 let g:Tex_IgnoreLevel = 8
 
 
+"new environments for beamer presentation
+let g:Tex_Env_columns =
+    \"\\begin{columns}\<CR>\\column{.5\\textwidth}\<CR>".
+    \"\\column{.5\\textwidth}\<CR>".
+    \"\\end{columns}<++>"
+
+let g:Tex_Env_block =
+    \"\\begin{block}{<+block title+>}\<CR>".
+    \"<++>\<CR>".
+    \"\\end{block}<++>"
+
+let g:Tex_Env_frame =
+    \"\\begin{frame}\<CR>".
+    \"\\frametitle{<+frame title+>}\<CR>".
+    \"<++>\<CR>".
+    \"\\end{frame}<++>"
+
+
 " Do make with different makeprg settings.
 " Error lists from each makeprg are combined into one quickfix list.
 " ==================
