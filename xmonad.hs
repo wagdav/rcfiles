@@ -22,6 +22,7 @@ import XMonad.Layout.ResizableTile
 import XMonad.Hooks.ManageHelpers -- isDialog
 
 import qualified XMonad.Prompt         as P
+import qualified XMonad.Prompt.Shell   as PShell
 import qualified XMonad.Actions.Submap as SM
 import qualified XMonad.Actions.Search as S
 import qualified Data.Map as M
@@ -70,6 +71,8 @@ myKeys =
         -- key bindings for resizable tall
         , ((mod4Mask, xK_a), sendMessage MirrorShrink)
         , ((mod4Mask, xK_z), sendMessage MirrorExpand)
+        -- shell prompt
+        , ((mod4Mask, xK_r), PShell.shellPrompt P.defaultXPConfig)
         ]
 
 myLayout = toggle $ smartBorders $ avoidStruts $
