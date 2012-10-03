@@ -7,7 +7,6 @@ import System.IO
 
 import XMonad.Hooks.SetWMName
 import XMonad.Actions.CycleWS
-import XMonad.Actions.GridSelect
 
 import XMonad.Util.Scratchpad
 import XMonad.Util.NamedScratchpad
@@ -16,7 +15,6 @@ import qualified XMonad.StackSet as W
 import XMonad.Layout.NoBorders
 
 import Control.Monad
-import XMonad.Layout.GridVariants as GV
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.ResizableTile
 import XMonad.Hooks.ManageHelpers -- isDialog
@@ -76,14 +74,13 @@ myKeys =
         ]
 
 myLayout = toggle $ smartBorders $ avoidStruts $
-            tiled ||| Mirror tiled ||| Full ||| grid
+            tiled ||| Mirror tiled ||| Full
     where
         tiled = (ResizableTall nmaster delta ratio [])
         nmaster = 1
         ratio = 2/3
         delta = 3/100
 
-        grid = GV.Grid (1.25)
         toggle = toggleLayouts (noBorders Full)
 
 
