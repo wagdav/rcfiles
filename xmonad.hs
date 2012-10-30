@@ -55,15 +55,13 @@ myKeys =
         , ((mod4Mask, xK_c), namedScratchpadAction scratchpads "editor-lac")
         , ((mod4Mask, xK_Insert), namedScratchpadAction scratchpads "music")
         , ((mod4Mask, xK_o), namedScratchpadAction scratchpads "mail")
-        -- GridSelect
-        , ((mod4Mask , xK_f), goToSelected defaultGSConfig)
-
+        -- full screen
         , ((mod4Mask, xK_F12), sendMessage $ Toggle "Full")
-
         -- search
         , ((mod4Mask, xK_slash), SM.submap $ searchEngineMap $
                 S.promptSearch P.defaultXPConfig)
-        , ((mod4Mask .|. shiftMask, xK_slash), SM.submap $ searchEngineMap $ S.selectSearch)
+        , ((mod4Mask .|. shiftMask, xK_slash),
+                SM.submap $ searchEngineMap $ S.selectSearch)
         -- xscreensaver
         , ((mod4Mask .|. shiftMask, xK_l), spawn "slock")
         -- key bindings for resizable tall
