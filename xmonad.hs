@@ -97,6 +97,7 @@ myManageHook =
         , className =? "Blender" --> doFloat
         , title =? "xmix" --> doFloat
         , isDialog --> doFloat
+        , isFullscreen --> doFullFloat
         ] <+>
     manageDocks <+>
     manageHook defaultConfig
