@@ -69,6 +69,8 @@ myKeys =
         , ((mod4Mask, xK_z), sendMessage MirrorExpand)
         -- shell prompt
         , ((mod4Mask, xK_r), PShell.shellPrompt P.defaultXPConfig)
+        -- toggle xmobar
+        , ((mod4Mask, xK_b), sendMessage ToggleStruts)
         ]
 
 myLayout = toggle $ smartBorders $ avoidStruts $
