@@ -7,4 +7,3 @@ set guifont=Monospace\ 10
 
 set wildmenu
 set wildmode=full
-~
