@@ -127,7 +127,7 @@ scratchpads :: [NamedScratchpad]
 scratchpads =
     [ NS "editor" "gvim --role Editor --servername 127.0.0.1"
              (role =? "Editor")
-             (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
+             (nonFloating)
     , NS "editor-lac" "ssh lac 'gvim --role lac-editor --servername lac'"
              (role =? "lac-editor")
              (nonFloating)
