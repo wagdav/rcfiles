@@ -10,6 +10,9 @@ Git:
 mpd:
 * mpcdconf -> $HOME/.mpdconf
 
+ncmcpp
+* ncmcpp_config -> $HOME/.ncmcpp/config
+
 Vi:
 * gvimrc -> $HOME/.gvimrc
 * vimrc -> $HOME/.vimrc
