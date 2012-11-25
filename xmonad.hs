@@ -18,6 +18,7 @@ import Control.Monad
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.ResizableTile
 import XMonad.Hooks.ManageHelpers -- isDialog
+import XMonad.Hooks.EwmhDesktops -- fullscreenEventHook
 
 import qualified XMonad.Prompt         as P
 import qualified XMonad.Prompt.Shell   as PShell
@@ -36,6 +37,7 @@ main = do
         , logHook = myLogHook xmproc
         , layoutHook = myLayout
         , workspaces = myWorkspaces
+        , handleEventHook = fullscreenEventHook
         } `additionalKeys` myKeys
 
 
