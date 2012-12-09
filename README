@@ -18,6 +18,9 @@ Vi:
 * vimrc -> $HOME/.vimrc
 
 
+Xbindkeys:
+* xbindkeysrc -> $HOME/.xbindkeysrc
+
 XMonad & XMobar:
 * xmobarrc -> $HOME/.xmobarrc
 * xmonad.hs -> $HOME/.xmonad/xmonad.hs
