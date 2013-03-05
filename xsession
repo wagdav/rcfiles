@@ -3,6 +3,8 @@ xscreensaver -no-splash &
 dropbox start
 setxkbmap us
 $HOME/rcfiles/set_screen dual
+mpd
+
 xsetroot -solid black
 trayer --edge top \
        --width 4 --widthtype percent \
@@ -12,3 +14,4 @@ trayer --edge top \
 &
 
 xmonad
+mpd --kill  # this will run when xmonad returns
