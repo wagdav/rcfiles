@@ -81,7 +81,7 @@ myLayout = toggle $ smartBorders $ avoidStruts $
         tiled = (ResizableTall nmaster delta ratio [])
         nmaster = 1
         ratio = 2/3
-        delta = 3/100
+        delta = 1/100
 
         toggle = toggleLayouts (noBorders Full)
 
@@ -97,7 +97,7 @@ myManageHook =
         , title =? "File Transfers" --> doFloat
         , title =? "ImageJ" --> doFloat
         , className =? "Blender" --> doFloat
-        , title =? "xmix" --> doFloat
+        , className =? "Pavucontrol" --> doFloat
         , isDialog --> doFloat
         , isFullscreen --> doFullFloat
         ] <+>
