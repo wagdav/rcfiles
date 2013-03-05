@@ -91,3 +91,10 @@ function! SwitchToList()
         exe 'buffer' number
     endif
 endfunction
+
+"mark item done
+nmap <leader>md ^s<C-V>u2713<ESC>
+"mark item neutral
+nmap <leader>mn ^s-<ESC>
+"mark item cancelled
+nmap <leader>mc ^s<C-V>u2717<ESC>
