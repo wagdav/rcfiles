@@ -49,6 +49,8 @@ myKeys =
         , ((0, 0x1008ff15), spawn "mpc stop")   -- stop song
         , ((0, 0x1008ff16), spawn "mpc prev")   -- previous song
         , ((0, 0x1008ff17), spawn "mpc next")   -- next song
+        -- ThinkVantage button
+        , ((0, 0x1008ff41), spawn "pavucontrol")
         -- CycleWS
         , ((mod4Mask, xK_quoteleft), toggleSkip ["NSP"])
         -- ScratchPad
