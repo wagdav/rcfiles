@@ -1,30 +1,26 @@
+import Control.Monad
+import System.IO
+import qualified Data.Map as M
+
 import XMonad
+import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Util.EZConfig(additionalKeys)
-import XMonad.Util.Run(spawnPipe)
-import System.IO
-
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
-import XMonad.Actions.CycleWS
-
-import XMonad.Util.Scratchpad
-import XMonad.Util.NamedScratchpad
-import qualified XMonad.StackSet as W
-
 import XMonad.Layout.NoBorders
-
-import Control.Monad
-import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.ResizableTile
-import XMonad.Hooks.ManageHelpers -- isDialog
-import XMonad.Hooks.EwmhDesktops -- fullscreenEventHook
-
+import XMonad.Layout.ToggleLayouts
+import XMonad.Util.EZConfig (additionalKeys)
+import XMonad.Util.NamedScratchpad
+import XMonad.Util.Run (spawnPipe)
+import XMonad.Util.Scratchpad
+import qualified XMonad.Actions.Search as S
+import qualified XMonad.Actions.Submap as SM
 import qualified XMonad.Prompt         as P
 import qualified XMonad.Prompt.Shell   as PShell
-import qualified XMonad.Actions.Submap as SM
-import qualified XMonad.Actions.Search as S
-import qualified Data.Map as M
+import qualified XMonad.StackSet       as W
+
 
 -- The main function.
 main = do
