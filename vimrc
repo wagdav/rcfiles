@@ -84,9 +84,9 @@ endfunction
 "command to open my action list
 command! Gtd call SwitchToList()
 function! SwitchToList()
-    let number = bufnr("Dropbox/txt/lists.rst")
+    let number = bufnr("Dropbox/txt/lists.otl")
     if number == -1
-        edit $HOME/Dropbox/txt/lists.rst
+        edit $HOME/Dropbox/txt/lists.otl
     else
         exe 'buffer' number
     endif
