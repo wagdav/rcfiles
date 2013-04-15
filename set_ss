@@ -2,7 +2,8 @@
 import sys, os
 
 modes = {
-    'off': 'xset -dpms;xset s off',
+    'disable': 'xset -dpms;xset s off',
+    'enable': 'xset +dpms;xset s on',
 }
 
 def print_help():
