@@ -5,6 +5,7 @@ import qualified Data.Map as M
 import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
