@@ -1,7 +1,7 @@
 Config { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u"
        , bgColor = "#000000"
        , fgColor = "#C9A34E"
-       , position = TopW R 96
+       , position = TopW R 100
        , lowerOnStart = True
        , commands =
             [ Run Cpu ["-L","3","-H","50",
