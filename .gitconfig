@@ -13,3 +13,4 @@
     wdiff = diff --color-words
 [core]
     excludesfile = ~/.gitignore_global
+	pager = less -r
