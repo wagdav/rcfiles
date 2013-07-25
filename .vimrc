@@ -1,8 +1,9 @@
-set tw=76
+set tw=0
 set ts=4
 set sts=4
 set shiftwidth=4
 set expandtab
+set linebreak
 
 set spellsuggest=5
 
@@ -15,6 +16,10 @@ syntax on
 "Insert date
 nnoremap <F12> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F12> <C-R>=strftime("%Y-%m-%d")<CR>
+
+"Move between logical lines
+nmap j gj
+nmap k gk
 
 " LatexSuite options
 " ==================
