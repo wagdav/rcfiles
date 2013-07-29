@@ -1,6 +1,6 @@
 [user]
     name = David Wagner
-    email = david.wagner@epfl.ch
+    email = wagdav@gmail.com
 
 [url "ssh://lac/~dwagner/projects/"]
     insteadOf = projects:
