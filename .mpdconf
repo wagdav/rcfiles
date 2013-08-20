@@ -1,4 +1,4 @@
-music_directory		"~/annex/music"
+music_directory		"~/av/music"
 playlist_directory  "~/.mpd/playlists"
 db_file			    "~/.mpd/tag_cache"
 log_file			"~/.mpd/mpd.log"
