@@ -21,6 +21,11 @@ inoremap <F12> <C-R>=strftime("%Y-%m-%d")<CR>
 nmap j gj
 nmap k gk
 
+"Search options
+set incsearch
+set ignorecase
+set smartcase
+
 " LatexSuite options
 " ==================
 let g:Tex_UseMakefile='1'
