@@ -4,6 +4,9 @@ fi
 
 GIT_ANNEX="/home/dwagner/.local/bin/git-annex"
 
+# disable PC speaker beep
+xset -b
+
 dropbox start
 if [ -f "$GIT_ANNEX" ]; then
     $GIT_ANNEX assistant --autostart
