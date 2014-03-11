@@ -1,5 +1,5 @@
 if [ -f "$HOME/.profile" ]; then
-    source $HOME/.profile
+    source "$HOME/.profile"
 fi
 
 GIT_ANNEX="/home/dwagner/.local/bin/git-annex"
