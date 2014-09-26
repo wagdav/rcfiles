@@ -9,8 +9,12 @@
     diff = auto
     status = auto
     branch = auto
+    diff-tree = auto
 [alias]
     wdiff = diff --color-words
+    lg = log --decorate
 [core]
     excludesfile = ~/.gitignore_global
 	pager = less -r
+[color "diff"]
+	whitespace = red reverse
