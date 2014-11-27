@@ -62,7 +62,7 @@ myKeys =
         , ((mod4Mask, xK_slash), SM.submap $ searchEngineMap $
                 S.promptSearch P.defaultXPConfig)
         , ((mod4Mask .|. shiftMask, xK_slash),
-                SM.submap $ searchEngineMap $ S.selectSearch)
+                SM.submap $ searchEngineMap S.selectSearch)
         -- xscreensaver
         , ((mod4Mask .|. shiftMask, xK_l), spawn "slock")
         -- key bindings for resizable tall
@@ -77,7 +77,7 @@ myKeys =
 myLayout = toggle $ smartBorders $ avoidStruts $
             tiled ||| Mirror tiled ||| Full
     where
-        tiled = (ResizableTall nmaster delta ratio [])
+        tiled = ResizableTall nmaster delta ratio []
         nmaster = 1
         ratio = 2/3
         delta = 1/100
@@ -127,7 +127,7 @@ scratchpads :: [NamedScratchpad]
 scratchpads =
     [ NS "editor" "gvim --role Editor --servername 127.0.0.1"
              (role =? "Editor")
-             (nonFloating)
+             nonFloating
     , NS "music" "x-terminal-emulator -title Music -e ncmpcpp"
              (title =? "Music")
              (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
@@ -138,7 +138,7 @@ scratchpads =
     where role = stringProperty "WM_WINDOW_ROLE"
 
 
-searchEngineMap method = M.fromList $
+searchEngineMap method = M.fromList
        [ ((0, xK_g), method S.google)
        , ((0, xK_h), method S.hoogle)
        , ((0, xK_w), method S.wikipedia)
