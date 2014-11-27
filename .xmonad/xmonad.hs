@@ -95,8 +95,6 @@ myManageHook =
         , className =? "Google-chrome" --> doShift "1:web"
         , className =? "Iceweasel" --> doShift "1:web"
         , title =? "File Transfers" --> doFloat
-        , title =? "ImageJ" --> doFloat
-        , className =? "Blender" --> doFloat
         , className =? "Pavucontrol" --> doFloat
         , isDialog --> doFloat
         , isFullscreen --> doFullFloat
