@@ -93,6 +93,7 @@ myManageHook =
         [ className =? "com-mathworks-util-PostVMInit" --> doFloat <+> doF W.focusDown
         , className =? "Ipython" --> doFloat <+> doF W.focusDown
         , className =? "Google-chrome" --> doShift "1:web"
+        , className =? "Iceweasel" --> doShift "1:web"
         , title =? "File Transfers" --> doFloat
         , title =? "ImageJ" --> doFloat
         , className =? "Blender" --> doFloat
