@@ -1,0 +1,12 @@
+"1.1
+
+set passkeys=mail.google.com:jkroaeysl<CR>,gi,gs
+
+qmark 4 http://444.hu
+qmark d http://duden.de
+qmark f http://facebook.com
+qmark i http://index.hu
+qmark l http://dict.leo.org
+qmark s http://szotar.sztaki.hu
+
+" vim: set ft=pentadactyl:
