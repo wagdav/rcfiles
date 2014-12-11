@@ -9,4 +9,7 @@ qmark i http://index.hu
 qmark l http://dict.leo.org
 qmark s http://szotar.sztaki.hu
 
+" Quickly access the list of pages to review
+command! -nargs=? -complete bookmark read :bmarks -tags review
+
 " vim: set ft=pentadactyl:
