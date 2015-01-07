@@ -6,6 +6,7 @@ set expandtab
 set linebreak
 
 set spellsuggest=5
+set colorcolumn=80
 
 filetype plugin indent on
 syntax on
