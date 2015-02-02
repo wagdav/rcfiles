@@ -69,29 +69,6 @@ let g:Tex_Env_frame =
     \"\\end{frame}<++>"
 
 
-" Do make with different makeprg settings.
-" Error lists from each makeprg are combined into one quickfix list.
-" ==================
-command! Pycheck call DoMake('pyflakes', 'pep8')
-function! DoMake(...)
-  update  " save any changes because makeprg checks the file on disk
-  let savemp = &makeprg
-  let qflist = []
-  for prg in a:000
-    let &makeprg = prg . ' %'
-    silent make!
-    let qflist += getqflist()
-  endfor
-  if empty(qflist)
-    cclose
-  else
-    call setqflist(qflist)
-    copen
-    cfirst
-  endif
-  let &makeprg = savemp
-endfunction
-
 "command to open my action list
 command! Gtd call SwitchToList()
 function! SwitchToList()
@@ -102,13 +79,6 @@ function! SwitchToList()
         exe 'buffer' number
     endif
 endfunction
-
-"mark item done
-nmap <leader>md ^s<C-V>u2713<ESC>
-"mark item neutral
-nmap <leader>mn ^s-<ESC>
-"mark item cancelled
-nmap <leader>mc ^s<C-V>u2717<ESC>
 
 "actions for navigation in code
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
