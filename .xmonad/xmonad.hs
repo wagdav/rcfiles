@@ -100,6 +100,7 @@ myManageHook =
         , className =? "Ipython" --> doFloat <+> doF W.focusDown
         , className =? "Google-chrome" --> doShift "1:web"
         , className =? "Iceweasel" --> doShift "1:web"
+        , className =? "Chromium" --> doShift "1:web"
         , title =? "File Transfers" --> doFloat
         , className =? "Pavucontrol" --> doFloat
         , isDialog --> doFloat
