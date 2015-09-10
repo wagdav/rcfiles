@@ -73,8 +73,8 @@ myKeys =
         -- toggle xmobar
         , ((mod4Mask, xK_b), sendMessage ToggleStruts)
         -- brighness control
-        , ((0, 0x1008FF02), spawn "xbacklight -inc 15")
-        , ((0, 0x1008FF03), spawn "xbacklight -dec 15")
+        , ((0, 0x1008FF02), spawn "xbacklight -inc 5")
+        , ((0, 0x1008FF03), spawn "xbacklight -dec 5")
         -- volume control
         , ((0, 0x1008FF13), spawn "amixer -q set Master 15%+")
         , ((0, 0x1008FF11), spawn "amixer -q set Master 15%-")
