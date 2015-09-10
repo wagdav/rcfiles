@@ -103,6 +103,7 @@ myManageHook =
         , className =? "Chromium" --> doShift "1:web"
         , title =? "File Transfers" --> doFloat
         , className =? "Pavucontrol" --> doFloat
+        , className =? "VidyoDesktop" --> doFloat
         , isDialog --> doFloat
         , isFullscreen --> doFullFloat
         ] <+>
