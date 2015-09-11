@@ -80,9 +80,6 @@ function! SwitchToList()
     endif
 endfunction
 
-"pathogen
-execute pathogen#infect()
-
 "code
 set tags=./tags;/
 
