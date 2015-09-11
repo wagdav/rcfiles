@@ -82,7 +82,3 @@ endfunction
 
 "code
 set tags=./tags;/
-
-"Python static analysis
-let g:flake8_show_in_gutter=1
-autocmd BufWritePost *.py call Flake8()
