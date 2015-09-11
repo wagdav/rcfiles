@@ -80,11 +80,6 @@ function! SwitchToList()
     endif
 endfunction
 
-"actions for navigation in code
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-"nnoremap <F2> :vimgrep /\<<C-R><C-W>\>/ **/*.%:e
-nnoremap <F2> :grep -r --include='*.<C-R>=expand('%:e')<CR>' '<C-R><C-W>' ./<CR><CR>:cw<CR>
-
 "pathogen
 execute pathogen#infect()
 
