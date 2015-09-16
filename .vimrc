@@ -82,3 +82,7 @@ endfunction
 
 "code
 set tags=./tags;/
+
+let g:ctrlp_custom_ignore = {
+    \ 'dir': 'build',
+    \ }
