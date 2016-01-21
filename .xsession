@@ -15,7 +15,6 @@ setxkbmap us -option compose:ralt
 mpd
 xsetroot -solid black
 
-eval `ssh-agent --daemon`
+ssh-agent -t 1d xmonad
 
-xmonad
 mpd --kill  # this will run when xmonad returns
