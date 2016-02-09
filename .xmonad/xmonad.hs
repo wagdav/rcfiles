@@ -98,6 +98,7 @@ myManageHook =
         -- prevent new figure windows from stealing focus
         [ className =? "com-mathworks-util-PostVMInit" --> doFloat <+> doF W.focusDown
         , className =? "Ipython" --> doFloat <+> doF W.focusDown
+        , className =? "Octave" --> doF W.focusDown
         , className =? "Google-chrome" --> doShift "1:web"
         , className =? "Iceweasel" --> doShift "1:web"
         , className =? "Chromium" --> doShift "1:web"
