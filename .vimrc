@@ -84,5 +84,5 @@ endfunction
 set tags=./tags;/
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir': 'build',
+    \ 'dir': 'build\|env',
     \ }
