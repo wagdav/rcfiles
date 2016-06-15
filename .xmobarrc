@@ -10,9 +10,8 @@ Config { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u"
     		, Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
             , Run Battery [] 10 
             , Run StdinReader
-            , Run Com "mpc" ["current"] "" 20
         ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{%battery% <fc=#429942>|</fc> %cpu% <fc=#429942>|</fc> %memory% <fc=#429942>|</fc> <fc=#6694e3>%mpc%</fc> <fc=#429942>|</fc> %date%"
+       , template = " %StdinReader% }{%battery% <fc=#429942>|</fc> %cpu% <fc=#429942>|</fc> %memory% <fc=#429942>|</fc> %date%"
        }
