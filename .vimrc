@@ -116,3 +116,7 @@ if has("cscope")
     "use the quickfix window
     set cscopequickfix=s-,c-,d-,i-,t-,e-
 endif
+
+"Pathogen
+execute pathogen#infect()
+call pathogen#helptags() " generate helptags for everything in 'runtimepath'
