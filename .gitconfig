@@ -21,3 +21,5 @@
 	whitespace = red reverse
 [push]
 	default = simple
+[rerere]
+	enabled = 1
