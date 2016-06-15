@@ -86,3 +86,6 @@ set tags=./tags;/
 let g:ctrlp_custom_ignore = {
     \ 'dir': 'build\|env',
     \ }
+
+" Fugitive status line
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
