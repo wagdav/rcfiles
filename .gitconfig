@@ -13,6 +13,7 @@
 [alias]
     wdiff = diff --color-words
     lg = log --decorate
+    review = log dev.. --decorate
 [core]
     excludesfile = ~/.gitignore_global
 	pager = less -r
