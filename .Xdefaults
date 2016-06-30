@@ -38,20 +38,17 @@ URxvt*color12:RoyalBlue
 ! scrollbar - true (default) or false
 URxvt*scrollBar:false
 
-! scrollbar position - left=false (default) or right=true
-URxvt*scrollBar_right:false
-
-! scrollbar style - rxvt (default), plain, next, or xterm
-URxvt*scrollstyle:rxvt
-
-URxvt*internalBorder:0
+URxvt*internalBorder:1
 URxvt*externalBorder:0
 
-!URxvt*fading:30
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
+!Disables the insanely annoying Ctrl+Shift shortcut that enters ISO14755 mode
+URxvt.iso14755:         False
 
 ! Some xdvi customisation
 xdvi.mainTranslations: !override\
        <Key>j:down-or-next()\n\
        <Key>k:up-or-previous()\n
-
