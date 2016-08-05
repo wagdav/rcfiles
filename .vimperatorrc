@@ -14,4 +14,6 @@ set gui=nonavigation
 ignorekeys add -except=:,b,<C-6>,<C-n>,<C-p>,o,t mail.google.com
 ignorekeys add docs.google.com
 
+command! -nargs=? -complete bookmark read :bmarks -tags review
+
 " vim: set ft=vimperator:
