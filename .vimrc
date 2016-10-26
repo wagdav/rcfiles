@@ -117,6 +117,9 @@ if has("cscope")
     set cscopequickfix=s-,c-,d-,i-,t-,e-
 endif
 
+" Airline
+set laststatus=2
+
 "Pathogen
 execute pathogen#infect()
 call pathogen#helptags() " generate helptags for everything in 'runtimepath'
