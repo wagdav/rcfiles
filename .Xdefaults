@@ -21,7 +21,7 @@ URxvt*foreground:Gray
 URxvt*background:Black
 
 ! xft fonts - anti-aliased xft font setup is nice, but can be choppy
-URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12
+URxvt*font: xft:Monospace:pixelsize=12
 
 ! traditional fonts - a more traditional font setup in lieu of xft
 !URxvt*font:-*-courier-medium-r-normal-*-*-140-*-*-*-*-iso8859-1
