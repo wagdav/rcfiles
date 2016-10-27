@@ -84,7 +84,7 @@ endfunction
 set tags=./tags;/
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir': 'build\|env',
+    \ 'dir': 'build\|env\|bin',
     \ }
 
 " Fugitive status line
