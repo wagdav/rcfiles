@@ -76,8 +76,10 @@ myKeys =
         , ((0, 0x1008FF02), spawn "xbacklight -inc 5")
         , ((0, 0x1008FF03), spawn "xbacklight -dec 5")
         -- volume control
-        , ((0, 0x1008FF13), spawn "amixer -q set Master 15%+")
-        , ((0, 0x1008FF11), spawn "amixer -q set Master 15%-")
+        , ((0, 0x1008FF13), spawn "pactl set-sink-mute 0 false ; pactl -- set-sink-volume 0 +10%")
+        , ((0, 0x1008FF11), spawn "pactl set-sink-mute 0 false ; pactl -- set-sink-volume 0 -10%")
+        , ((0, 0x1008ffb2), spawn "pactl set-source-mute 1 toggle")
+        , ((0, 0x1008ff12), spawn "pactl set-sink-mute 0 toggle")
         ]
 
 myLayout = toggle $ smartBorders $ avoidStruts $
