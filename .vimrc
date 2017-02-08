@@ -120,6 +120,9 @@ endif
 " Airline
 set laststatus=2
 
+" YouCompleteMe
+set completeopt-=preview
+
 "Pathogen
 execute pathogen#infect()
 call pathogen#helptags() " generate helptags for everything in 'runtimepath'
