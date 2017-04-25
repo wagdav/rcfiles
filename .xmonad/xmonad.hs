@@ -110,7 +110,6 @@ myManageHook =
         , className =? "VidyoDesktop" --> doFloat
         , className =? "TeamViewer" --> doFloat
         , isDialog --> doFloat
-        , isFullscreen --> doFullFloat
         ] <+>
     manageDocks <+>
     manageHook defaultConfig
