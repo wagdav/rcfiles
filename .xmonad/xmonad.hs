@@ -108,6 +108,7 @@ myManageHook =
         , title =? "File Transfers" --> doFloat
         , className =? "Pavucontrol" --> doFloat
         , className =? "VidyoDesktop" --> doFloat
+        , className =? "TeamViewer" --> doFloat
         , isDialog --> doFloat
         , isFullscreen --> doFullFloat
         ] <+>
