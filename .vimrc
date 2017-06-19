@@ -126,3 +126,7 @@ set completeopt-=preview
 "Pathogen
 execute pathogen#infect()
 call pathogen#helptags() " generate helptags for everything in 'runtimepath'
+
+" Viewer for key combination 'gx'
+let g:netrw_browsex_viewer="xdg-open"
+
