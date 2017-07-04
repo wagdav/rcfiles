@@ -131,3 +131,6 @@ call pathogen#helptags() " generate helptags for everything in 'runtimepath'
 " Viewer for key combination 'gx'
 let g:netrw_browsex_viewer="xdg-open"
 
+" Close buffer but not split window ',d'
+" https://stackoverflow.com/a/19619038/513809
+nmap ,d :b#<bar>bd#<CR>
