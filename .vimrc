@@ -1,3 +1,4 @@
+set nocompatible
 set tw=0
 set ts=4
 set sts=4
