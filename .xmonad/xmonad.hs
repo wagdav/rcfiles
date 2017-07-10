@@ -30,7 +30,7 @@ main = do
     xmonad $ defaultConfig
         { modMask = mod4Mask -- Rebind Mod to the Windows key
         , borderWidth=2
-        , manageHook = myManageHook
+        , manageHook = manageDocks <+> myManageHook
         , startupHook = setWMName "LG3D"
         , logHook = myLogHook xmproc
         , layoutHook = myLayout
@@ -110,10 +110,8 @@ myManageHook =
         , className =? "VidyoDesktop" --> doFloat
         , className =? "TeamViewer" --> doFloat
         , isDialog --> doFloat
-        ] <+>
-    manageDocks <+>
-    manageHook defaultConfig
-
+        , isFullscreen --> (doF W.focusDown <+> doFullFloat)
+        ]
 
 -- It determines what's being written to the bar.
 myLogHook :: Handle -> X ()
