@@ -77,10 +77,10 @@ myKeys =
         , ((0, 0x1008FF02), spawn "xbacklight -inc 5")
         , ((0, 0x1008FF03), spawn "xbacklight -dec 5")
         -- volume control
-        , ((0, 0x1008FF13), spawn $ setVolume "+10%")
-        , ((0, 0x1008FF11), spawn $ setVolume "-10%")
-        , ((0, 0x1008ffb2), spawn "pactl set-source-mute 1 toggle")
-        , ((0, 0x1008ff12), spawn $ toggleMute)
+        , ((0, 0x1008ff13), spawn "amixer -q set Master 10%+")
+        , ((0, 0x1008ff11), spawn "amixer -q set Master 10%-")
+        , ((0, 0x1008ffb2), spawn "amixer -q set Capture toggle")
+        , ((0, 0x1008ff12), spawn "amixer -q set Master toggle")
         ]
 
 myLayout = toggle $ smartBorders $ avoidStruts $
@@ -159,21 +159,3 @@ searchEngineMap method = M.fromList
        , ((0, xK_y), method S.youtube)
        , ((0, xK_t), method S.dictionary)
        ]
-
--- PulseAudio volume control
-channels = [0..6]
-
-setVolume :: String -> String
-setVolume volume =
-    intercalate ";" $ [ unmute c | c <- channels] ++ [setVol c | c <- channels]
-  where
-    unmute ch = noErr $ "pactl set-sink-mute " ++ show ch ++ " false"
-    setVol ch = noErr $ "pactl set-sink-volume " ++ show ch ++ " " ++ volume
-
-toggleMute :: String
-toggleMute = intercalate ";" $ [toggle c | c <- channels]
-  where
-    toggle ch = noErr $ "pactl set-sink-mute " ++ show ch ++ " toggle"
-
-noErr :: String -> String
-noErr s = s ++ " 2> /dev/null"
