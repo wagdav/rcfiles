@@ -6,5 +6,8 @@ alias ll='ls -alh'
 
 # todo-txt
 alias t="todo-txt -d $HOME/.todo-txt/config -t"
-complete -F _todo t
-. /usr/share/bash-completion/completions/todo-txt
+
+if [ -f /usr/share/bash-completion/completions/todo-txt ]; then
+    complete -F _todo t
+    . /usr/share/bash-completion/completions/todo-txt
+fi
