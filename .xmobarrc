@@ -1,5 +1,4 @@
-Config { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u"
-       , bgColor = "#000000"
+Config { bgColor = "#000000"
        , fgColor = "#C9A34E"
        , position = TopW R 100
        , lowerOnStart = True
