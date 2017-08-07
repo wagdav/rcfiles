@@ -14,7 +14,6 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.ToggleLayouts
 import XMonad.Util.EZConfig (additionalKeys)
-import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.Scratchpad
 import qualified XMonad.Actions.Search as S
@@ -53,10 +52,6 @@ myKeys =
         , ((mod4Mask, xK_quoteleft), toggleSkip ["NSP"])
         -- ScratchPad
         , ((mod4Mask, xK_s), scratchpadSpawnAction defaultConfig)
-        , ((mod4Mask, xK_v), namedScratchpadAction scratchpads "editor")
-        , ((mod4Mask, xK_c), namedScratchpadAction scratchpads "editor-lac")
-        , ((mod4Mask, xK_Insert), namedScratchpadAction scratchpads "music")
-        , ((mod4Mask, xK_o), namedScratchpadAction scratchpads "mail")
         -- full screen
         , ((mod4Mask, xK_F12), sendMessage $ Toggle "Full")
         -- search
@@ -96,7 +91,6 @@ myLayout = toggle $ smartBorders $ avoidStruts $
 
 myManageHook =
     scratchpadManageHook (W.RationalRect 0.1 0.25 0.8 0.5) <+>
-    namedScratchpadManageHook scratchpads <+>
     composeAll
         -- prevent new figure windows from stealing focus
         [ className =? "com-mathworks-util-PostVMInit" --> doFloat <+> doF W.focusDown
@@ -121,7 +115,7 @@ customPP :: PP
 customPP = xmobarPP
     {   ppCurrent = xmobarColor "yellow" "" . wrap "[" "]",
         ppTitle = xmobarColor "green" "" . shorten 80
-    ,   ppSort = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort defaultPP
+    ,   ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
     }
 
 
@@ -130,23 +124,6 @@ toggleSkip :: [WorkspaceId] -> X ()
 toggleSkip skips = do
     hs <- gets (flip skipTags skips . W.hidden . windowset)
     unless (null hs) (windows . W.view . W.tag $ head hs)
-
-
--- Scratchpads
-scratchpads :: [NamedScratchpad]
-scratchpads =
-    [ NS "editor" "gvim --role Editor --servername 127.0.0.1"
-             (role =? "Editor")
-             nonFloating
-    , NS "music" "x-terminal-emulator -title Music -e ncmpcpp"
-             (title =? "Music")
-             (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
-    , NS "mail" "x-terminal-emulator -title Mail -e mutt"
-             (title =? "Mail")
-             (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
-    ]
-    where role = stringProperty "WM_WINDOW_ROLE"
-
 
 searchEngineMap method = M.fromList
        [ ((0, xK_g), method S.google)
