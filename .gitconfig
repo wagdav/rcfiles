@@ -2,9 +2,6 @@
     name = David Wagner
     email = wagdav@gmail.com
 
-[url "ssh://lac/~dwagner/projects/"]
-    insteadOf = projects:
-
 [color]
     diff = auto
     status = auto
