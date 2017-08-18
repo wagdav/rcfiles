@@ -13,7 +13,7 @@
 [alias]
     wdiff = diff --color-words
     lg = log --decorate
-    review = log dev.. --decorate
+    review = log --decorate -p -C
     ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 [core]
     excludesfile = ~/.gitignore_global
