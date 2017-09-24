@@ -6,7 +6,7 @@ import qualified Data.Map as M
 import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
@@ -26,7 +26,7 @@ import qualified XMonad.StackSet       as W
 -- The main function.
 main = do
     xmproc <- spawnPipe "xmobar"
-    xmonad $ defaultConfig
+    xmonad $ ewmh $ defaultConfig
         { modMask = mod4Mask -- Rebind Mod to the Windows key
         , borderWidth=2
         , manageHook = manageDocks <+> myManageHook
