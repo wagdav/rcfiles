@@ -29,7 +29,7 @@ main = do
     xmonad $ ewmh $ def
         { modMask = mod4Mask -- Rebind Mod to the Windows key
         , borderWidth=2
-        , manageHook = manageDocks <+> myManageHook
+        , manageHook = myManageHook
         , startupHook = setWMName "LG3D"
         , logHook = myLogHook xmproc
         , layoutHook = myLayout
@@ -89,23 +89,24 @@ myLayout = toggle $ smartBorders $ avoidStruts $
         toggle = toggleLayouts (noBorders Full)
 
 
-myManageHook =
-    scratchpadManageHook (W.RationalRect 0.1 0.25 0.8 0.5) <+>
-    composeAll
-        -- prevent new figure windows from stealing focus
-        [ className =? "com-mathworks-util-PostVMInit" --> doFloat <+> doF W.focusDown
-        , className =? "Ipython" --> doFloat <+> doF W.focusDown
-        , className =? "Octave" --> doF W.focusDown
-        , className =? "Google-chrome" --> doShift "1:web"
-        , className =? "Iceweasel" --> doShift "1:web"
-        , className =? "Chromium" --> doShift "1:web"
-        , title =? "File Transfers" --> doFloat
-        , className =? "Pavucontrol" --> doFloat
-        , className =? "VidyoDesktop" --> doFloat
-        , className =? "TeamViewer" --> doFloat
-        , isDialog --> doFloat
-        , isFullscreen --> (doF W.focusDown <+> doFullFloat)
-        ]
+myManageHook = composeAll
+    [ manageDocks
+    , scratchpadManageHook (W.RationalRect 0.1 0.25 0.8 0.5)
+
+    , className =? "Chromium" --> doShift "1:web"
+    , className =? "com-mathworks-util-PostVMInit" --> doFloat <+> doF W.focusDown
+    , className =? "Google-chrome" --> doShift "1:web"
+    , className =? "Iceweasel" --> doShift "1:web"
+    , className =? "Ipython" --> doFloat <+> doF W.focusDown
+    , className =? "Octave" --> doF W.focusDown
+    , className =? "Pavucontrol" --> doFloat
+    , className =? "TeamViewer" --> doFloat
+    , className =? "VidyoDesktop" --> doFloat
+    , title =? "File Transfers" --> doFloat
+
+    , isDialog --> doFloat
+    , isFullscreen --> doFullFloat
+    ]
 
 -- It determines what's being written to the bar.
 myLogHook :: Handle -> X ()
