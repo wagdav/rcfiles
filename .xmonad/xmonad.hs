@@ -9,7 +9,6 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.SetWMName
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.ToggleLayouts
@@ -30,7 +29,6 @@ main = do
         { modMask = mod4Mask -- Rebind Mod to the Windows key
         , borderWidth=2
         , manageHook = myManageHook
-        , startupHook = setWMName "LG3D"
         , logHook = myLogHook xmproc
         , layoutHook = myLayout
         , workspaces = myWorkspaces
