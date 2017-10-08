@@ -93,10 +93,7 @@ myManageHook = composeAll
     [ manageDocks
     , scratchpadManageHook (W.RationalRect 0.1 0.25 0.8 0.5)
 
-    , className =? "Chromium" --> doShift "1:web"
     , className =? "com-mathworks-util-PostVMInit" --> doFloat <+> doF W.focusDown
-    , className =? "Google-chrome" --> doShift "1:web"
-    , className =? "Iceweasel" --> doShift "1:web"
     , className =? "Ipython" --> doFloat <+> doF W.focusDown
     , className =? "Octave" --> doF W.focusDown
     , className =? "Pavucontrol" --> doFloat
