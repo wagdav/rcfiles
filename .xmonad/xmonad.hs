@@ -26,7 +26,7 @@ import qualified XMonad.StackSet       as W
 -- The main function.
 main = do
     xmproc <- spawnPipe "xmobar"
-    xmonad $ ewmh $ defaultConfig
+    xmonad $ ewmh $ def
         { modMask = mod4Mask -- Rebind Mod to the Windows key
         , borderWidth=2
         , manageHook = manageDocks <+> myManageHook
@@ -51,12 +51,12 @@ myKeys =
         -- CycleWS
         , ((mod4Mask, xK_quoteleft), toggleSkip ["NSP"])
         -- ScratchPad
-        , ((mod4Mask, xK_s), scratchpadSpawnAction defaultConfig)
+        , ((mod4Mask, xK_s), scratchpadSpawnAction def)
         -- full screen
         , ((mod4Mask, xK_F12), sendMessage $ Toggle "Full")
         -- search
         , ((mod4Mask, xK_slash), SM.submap $ searchEngineMap $
-                S.promptSearch P.defaultXPConfig)
+                S.promptSearch def)
         , ((mod4Mask .|. shiftMask, xK_slash),
                 SM.submap $ searchEngineMap S.selectSearch)
         -- xscreensaver
@@ -65,7 +65,7 @@ myKeys =
         , ((mod4Mask, xK_a), sendMessage MirrorShrink)
         , ((mod4Mask, xK_z), sendMessage MirrorExpand)
         -- shell prompt
-        , ((mod4Mask, xK_r), PShell.shellPrompt P.defaultXPConfig)
+        , ((mod4Mask, xK_r), PShell.shellPrompt def)
         -- toggle xmobar
         , ((mod4Mask, xK_b), sendMessage ToggleStruts)
         -- brighness control
@@ -115,7 +115,7 @@ customPP :: PP
 customPP = xmobarPP
     {   ppCurrent = xmobarColor "yellow" "" . wrap "[" "]",
         ppTitle = xmobarColor "green" "" . shorten 80
-    ,   ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
+    ,   ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort def
     }
 
 
