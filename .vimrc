@@ -1,4 +1,48 @@
 set nocompatible
+filetype off
+
+"Plugins
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'dkprice/vim-easygrep'
+Plugin 'editorconfig/editorconfig'
+Plugin 'kana/vim-altr'
+Plugin 'kana/vim-operator-user'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'rhysd/vim-clang-format.git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline'
+Plugin 'VundleVim/Vundle.vim'
+call vundle#end()
+
+
+"Plugin configuration
+
+" Airline
+set laststatus=2
+
+" Altr
+command! A call altr#forward()
+
+" Ctrlp
+" ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" Fugitive status line
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" YouCompleteMe
+set completeopt-=preview
+noremap <F2> :YcmCompleter GoToDeclaration<CR>
+noremap <S-F2> :YcmCompleter GoTo<CR>
+noremap <Leader>f :YcmCompleter FixIt<CR>
+
+
+"Other customizations
+filetype plugin indent on
 set tw=0
 set ts=4
 set sts=4
@@ -9,7 +53,6 @@ set linebreak
 set spellsuggest=5
 set colorcolumn=80
 
-filetype plugin indent on
 syntax on
 
 "Remap \zz to toggle the value of 'scrolloff' between 0 and 999
@@ -84,13 +127,6 @@ endfunction
 "code
 set tags=./tags;/
 
-let g:ctrlp_custom_ignore = {
-    \ 'dir': 'build\|env\|bin',
-    \ }
-
-" Fugitive status line
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
 "cscope
 if has("cscope")
     set csto=0
@@ -117,16 +153,6 @@ if has("cscope")
     "use the quickfix window
     set cscopequickfix=s-,c-,d-,i-,t-,e-
 endif
-
-" Airline
-set laststatus=2
-
-" YouCompleteMe
-set completeopt-=preview
-
-"Pathogen
-execute pathogen#infect()
-call pathogen#helptags() " generate helptags for everything in 'runtimepath'
 
 " Viewer for key combination 'gx'
 let g:netrw_browsex_viewer="xdg-open"
