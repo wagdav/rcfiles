@@ -110,7 +110,7 @@ myLogHook h = dynamicLogWithPP $ customPP { ppOutput = hPutStrLn h }
 customPP :: PP
 customPP = xmobarPP
     {   ppCurrent = xmobarColor "yellow" "" . wrap "[" "]",
-        ppTitle = xmobarColor "green" "" . shorten 80
+        ppTitle = xmobarColor "green" "" . shorten 100
     ,   ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort def
     }
 
