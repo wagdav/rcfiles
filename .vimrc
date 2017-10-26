@@ -51,7 +51,6 @@ set expandtab
 set linebreak
 
 set spellsuggest=5
-set colorcolumn=80
 
 syntax on
 
