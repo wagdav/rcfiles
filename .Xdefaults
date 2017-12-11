@@ -41,7 +41,7 @@ URxvt*scrollBar:false
 URxvt*internalBorder:1
 URxvt*externalBorder:0
 
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,font-size
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
