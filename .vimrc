@@ -116,9 +116,9 @@ let g:Tex_Env_frame =
 "command to open my action list
 command! Gtd call SwitchToList()
 function! SwitchToList()
-    let number = bufnr("Dropbox/txt/lists.otl")
+    let number = bufnr("Dropbox/Apps/Notes for Android/")
     if number == -1
-        edit $HOME/Dropbox/txt/lists.otl
+        edit $HOME/Dropbox/Apps/Notes\ for\ Android
     else
         exe 'buffer' number
     endif
