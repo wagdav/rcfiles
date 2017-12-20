@@ -9,12 +9,14 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.Tabbed
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.ToggleLayouts
 import XMonad.Util.EZConfig (additionalKeys)
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.Scratchpad
+import XMonad.Util.Themes
 import qualified XMonad.Actions.Search as S
 import qualified XMonad.Actions.Submap as SM
 import qualified XMonad.Prompt         as P
@@ -77,7 +79,7 @@ myKeys =
         ]
 
 myLayout = toggle $ smartBorders $ avoidStruts $
-            tiled ||| Mirror tiled ||| Full
+            tiled ||| Mirror tiled ||| Full ||| simpleTabbed
     where
         tiled = ResizableTall nmaster delta ratio []
         nmaster = 1
