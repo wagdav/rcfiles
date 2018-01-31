@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'editorconfig/editorconfig'
+Plugin 'hashivim/vim-terraform'
 Plugin 'kana/vim-altr'
 Plugin 'kana/vim-operator-user'
 Plugin 'ludovicchabant/vim-gutentags'
@@ -15,6 +16,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'VundleVim/Vundle.vim'
 call vundle#end()
 
