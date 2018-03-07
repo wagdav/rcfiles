@@ -19,7 +19,6 @@ import XMonad.Util.Scratchpad
 import XMonad.Util.Themes
 import qualified XMonad.Actions.Search as S
 import qualified XMonad.Actions.Submap as SM
-import qualified XMonad.Prompt         as P
 import qualified XMonad.Prompt.Shell   as PShell
 import qualified XMonad.StackSet       as W
 
