@@ -17,6 +17,7 @@ import XMonad.Util.EZConfig (additionalKeys)
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.Scratchpad
 import XMonad.Util.Themes
+import XMonad.Prompt.Pass (passPrompt)
 import qualified XMonad.Actions.Search as S
 import qualified XMonad.Actions.Submap as SM
 import qualified XMonad.Prompt.Shell   as PShell
@@ -65,6 +66,8 @@ myKeys =
         , ((mod4Mask, xK_z), sendMessage MirrorExpand)
         -- shell prompt
         , ((mod4Mask, xK_r), PShell.shellPrompt def)
+        -- password
+        , ((mod4Mask .|. shiftMask, xK_p), passPrompt def)
         -- toggle xmobar
         , ((mod4Mask, xK_b), sendMessage ToggleStruts)
         -- brighness control
