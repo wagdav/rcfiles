@@ -166,3 +166,10 @@ let g:netrw_browsex_viewer="xdg-open"
 nmap ,d :b#<bar>bd#<CR>
 
 nmap <Leader>g :Ggrep <C-R>=expand("<cword>")<CR>
+
+" Convert to markdown using pandoc
+command! -nargs=* RunSilent
+      \ | execute ':silent !'.'<args>'
+      \ | execute ':redraw!'
+nmap <Leader>pc :RunSilent pandoc -o /tmp/vim-pandoc-out.html %<CR>
+nmap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.html<CR>
