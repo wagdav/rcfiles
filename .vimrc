@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'editorconfig/editorconfig'
+Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'hashivim/vim-terraform'
 Plugin 'kana/vim-altr'
 Plugin 'kana/vim-operator-user'
