@@ -105,6 +105,8 @@ myManageHook = composeAll
 
     , isDialog --> doFloat
     , isFullscreen --> doFullFloat
+
+    , manageHook def
     ]
 
 -- It determines what's being written to the bar.
