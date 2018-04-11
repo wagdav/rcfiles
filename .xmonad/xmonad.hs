@@ -80,8 +80,10 @@ myKeys =
         , ((0, 0x1008ff12), spawn "amixer -q set Master toggle")
         ]
 
-myLayout = toggle $ smartBorders $ avoidStruts $
-            tiled ||| Mirror tiled ||| Full ||| simpleTabbed
+myLayout = avoidStruts
+         $ toggle
+         $ smartBorders
+         $ tiled ||| Mirror tiled ||| Full ||| simpleTabbed
     where
         tiled = ResizableTall nmaster delta ratio []
         nmaster = 1
