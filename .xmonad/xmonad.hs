@@ -131,10 +131,10 @@ toggleSkip skips = do
 
 searchEngineMap method = M.fromList
        [ ((0, xK_g), method S.google)
-       , ((0, xK_h), method S.hoogle)
+       , ((0, xK_h), method S.hackage)
        , ((0, xK_w), method S.wikipedia)
        , ((0, xK_i), method S.imdb)
-       , ((0, xK_s), method S.scholar)
+       , ((0, xK_s), method S.stackage)
        , ((0, xK_m), method S.maps)
        , ((0, xK_d), method S.deb)
        , ((0, xK_y), method S.youtube)
