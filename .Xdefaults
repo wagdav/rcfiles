@@ -38,6 +38,11 @@ URxvt*color12:RoyalBlue
 ! scrollbar - true (default) or false
 URxvt*scrollBar:false
 
+! scroll locking
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+
 URxvt*internalBorder:1
 URxvt*externalBorder:0
 
