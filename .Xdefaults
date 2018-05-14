@@ -51,9 +51,11 @@ URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
 !Disables the insanely annoying Ctrl+Shift shortcut that enters ISO14755 mode
-URxvt.iso14755:         False
+URxvt.iso14755:         false
+URxvt.iso14755_52:      false
 
-! Some xdvi customisation
-xdvi.mainTranslations: !override\
-       <Key>j:down-or-next()\n\
-       <Key>k:up-or-previous()\n
+URxvt.keysym.C-M-c:    builtin-string:
+URxvt.keysym.C-M-v:    builtin-string:
+! Bind Ctrl-Shift-c & Ctrl-Shift-v to copy and paste
+URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+URxvt.keysym.C-S-0x56: eval:paste_clipboard
