@@ -51,7 +51,7 @@ myKeys =
         -- CycleWS
         , ((mod4Mask, xK_quoteleft), toggleSkip ["NSP"])
         -- ScratchPad
-        , ((mod4Mask, xK_s), scratchpadSpawnAction def)
+        , ((mod4Mask, xK_s), scratchpadSpawnActionCustom "termite --name scratchpad")
         -- full screen
         , ((mod4Mask, xK_F12), sendMessage $ Toggle "Full")
         -- search
