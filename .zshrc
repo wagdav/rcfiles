@@ -107,3 +107,4 @@ export LC_ALL=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+alias t="todo-txt -d $HOME/.todo-txt/config -t"
