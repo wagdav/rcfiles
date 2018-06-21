@@ -12,6 +12,7 @@
     lg = log --decorate
     review = log --decorate -p -C
     ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+    exec = "!exec "
 [core]
     excludesfile = ~/.gitignore_global
 	pager = less -r
