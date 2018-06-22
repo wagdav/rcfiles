@@ -22,3 +22,5 @@
 	default = simple
 [rerere]
 	enabled = 1
+[diff]
+	submodule = log
