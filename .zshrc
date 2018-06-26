@@ -109,3 +109,7 @@ if [ -d "$HOME/.pyenv" ]; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 fi
+
+if [ -f "/usr/bin/direnv" ]; then
+    eval "$(direnv hook zsh)"
+fi
