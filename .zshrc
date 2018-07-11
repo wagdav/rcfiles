@@ -69,6 +69,7 @@ plugins=(
   dirhistory
   git
   jira
+  pass
   terraform
   web-search
 )
