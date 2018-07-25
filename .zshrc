@@ -114,3 +114,8 @@ fi
 if [ -f "/usr/bin/direnv" ]; then
     eval "$(direnv hook zsh)"
 fi
+
+if [ -f "$HOME/.local/bin/aws-vault" ]; then
+    export AWS_VAULT_BACKEND=secret-service
+    eval "$($HOME/.local/bin/aws-vault --completion-script-zsh)"
+fi
