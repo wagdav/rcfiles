@@ -117,5 +117,7 @@ fi
 
 if [ -f "$HOME/.local/bin/aws-vault" ]; then
     export AWS_VAULT_BACKEND=secret-service
+    export AWS_ASSUME_ROLE_TTL=10h
+    export AWS_SESSION_TTL=1h
     eval "$($HOME/.local/bin/aws-vault --completion-script-zsh)"
 fi
