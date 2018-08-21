@@ -71,6 +71,7 @@ plugins=(
   jira
   pass
   terraform
+  stack
   web-search
 )
 
