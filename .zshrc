@@ -1,3 +1,7 @@
+if [ -f /etc/profile ]; then
+    . /etc/profile
+fi
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.local/bin:$PATH
 
