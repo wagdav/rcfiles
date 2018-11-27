@@ -110,12 +110,6 @@ export EDITOR='vim'
 #
 alias t="todo-txt -d $HOME/.todo-txt/config -t"
 
-if [ -d "$HOME/.pyenv" ]; then
-    export PATH="$HOME/.pyenv/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
-
 if [ -f "/usr/bin/direnv" ]; then
     eval "$(direnv hook zsh)"
 fi
