@@ -34,7 +34,7 @@ main = do
         , logHook = myLogHook xmproc
         , layoutHook = myLayout
         , workspaces = myWorkspaces
-        , handleEventHook = fullscreenEventHook
+        , handleEventHook = myHandleEventHook
         } `additionalKeys` myKeys
 
 
@@ -109,6 +109,12 @@ myManageHook = composeAll
     , isFullscreen --> doFullFloat
 
     , manageHook def
+    ]
+
+myHandleEventHook = composeAll
+    [ docksEventHook
+    , fullscreenEventHook
+    , handleEventHook def
     ]
 
 -- It determines what's being written to the bar.
