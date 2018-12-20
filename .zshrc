@@ -120,3 +120,8 @@ if [ -f "$HOME/.local/bin/aws-vault" ]; then
     export AWS_SESSION_TTL=8h
     eval "$($HOME/.local/bin/aws-vault --completion-script-zsh)"
 fi
+
+# Yarn
+if [ -f "$HOME/.yarn/bin/yarn" ]; then
+    export PATH="$HOME/.yarn/bin":$PATH
+fi
