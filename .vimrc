@@ -25,6 +25,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'vmchale/dhall-vim'
 Plugin 'VundleVim/Vundle.vim'
 call vundle#end()
 
