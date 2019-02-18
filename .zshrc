@@ -76,7 +76,6 @@ plugins=(
   pass
   terraform
   stack
-  web-search
 )
 
 JIRA_RAPID_BOARD="true"
