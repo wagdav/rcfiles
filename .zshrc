@@ -113,6 +113,8 @@ if [ -f "/usr/bin/direnv" ]; then
     eval "$(direnv hook zsh)"
 fi
 
+alias ssh='TERM=xterm-color ssh'
+
 if [ -f "$HOME/.local/bin/aws-vault" ]; then
     export AWS_VAULT_BACKEND=secret-service
     export AWS_ASSUME_ROLE_TTL=1h
