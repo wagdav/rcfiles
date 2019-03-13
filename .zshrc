@@ -126,3 +126,11 @@ fi
 if [ -f "$HOME/.yarn/bin/yarn" ]; then
     export PATH="$HOME/.yarn/bin":$PATH
 fi
+
+# Go
+if [ -f "$HOME/.go/bin/go" ]; then
+  export PATH=$PATH:"$HOME/.go/bin"
+
+  export GOPATH="$HOME/go"
+  export PATH=$PATH:"$GOPATH/bin"
+fi
