@@ -7,10 +7,11 @@ Config { bgColor = "#000000"
                 "--normal","#429942","--high","#A36666"] 10
             , Run Memory ["-t","Mem: <usedratio>%"] 10
     		, Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-            , Run Battery [] 10 
+            , Run Battery [] 10
+            , Run Weather "LSGG" ["-t", "<station>: <tempC>°C"] 36000
             , Run StdinReader
         ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{%battery% <fc=#429942>|</fc> %cpu% <fc=#429942>|</fc> %memory% <fc=#429942>|</fc> %date%"
+       , template = " %StdinReader% }{%LSGG% <fc=#429942>|</fc> %battery% <fc=#429942>|</fc> %cpu% <fc=#429942>|</fc> %memory% <fc=#429942>|</fc> %date%"
        }
