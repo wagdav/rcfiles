@@ -5,6 +5,7 @@ import qualified Data.Map as M
 
 import XMonad
 import XMonad.Actions.CycleWS
+import XMonad.Actions.GridSelect
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
@@ -78,6 +79,8 @@ myKeys =
         , ((0, 0x1008ff11), spawn "amixer -q set Master 10%-")
         , ((0, 0x1008ffb2), spawn "amixer -q set Capture toggle")
         , ((0, 0x1008ff12), spawn "amixer -q set Master toggle")
+        -- Grid Select
+        , ((mod4Mask, xK_g), goToSelected defaultGSConfig)
         ]
 
 myLayout = avoidStruts
