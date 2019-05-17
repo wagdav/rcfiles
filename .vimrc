@@ -51,6 +51,8 @@ noremap <F2> :YcmCompleter GoToDeclaration<CR>
 noremap <S-F2> :YcmCompleter GoTo<CR>
 noremap <Leader>f :YcmCompleter FixIt<CR>
 
+" Syntastic
+let g:syntastic_go_checkers = ['go', 'gofmt', 'golint', 'govet']
 
 "Other customizations
 filetype plugin indent on
