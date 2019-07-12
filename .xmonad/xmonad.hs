@@ -81,6 +81,8 @@ myKeys =
         , ((0, 0x1008ff12), spawn "amixer -q set Master toggle")
         -- Grid Select
         , ((mod4Mask, xK_g), goToSelected defaultGSConfig)
+        -- Screenshot
+        , ((0, xK_Print), spawn "flameshot gui")
         ]
 
 myLayout = avoidStruts
