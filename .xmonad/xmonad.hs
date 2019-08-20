@@ -30,7 +30,7 @@ main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ ewmh $ def
         { modMask = mod4Mask -- Rebind Mod to the Windows key
-        , borderWidth=2
+        , borderWidth = 2
         , manageHook = myManageHook
         , logHook = myLogHook xmproc
         , layoutHook = myLayout
@@ -80,7 +80,7 @@ myKeys =
         , ((0, 0x1008ffb2), spawn "amixer -q set Capture toggle")
         , ((0, 0x1008ff12), spawn "amixer -q set Master toggle")
         -- Grid Select
-        , ((mod4Mask, xK_g), goToSelected defaultGSConfig)
+        , ((mod4Mask, xK_g), goToSelected def)
         -- Screenshot
         , ((0, xK_Print), spawn "flameshot gui")
         ]
@@ -130,7 +130,7 @@ customPP :: PP
 customPP = xmobarPP
     {   ppCurrent = xmobarColor "yellow" "" . wrap "[" "]",
         ppTitle = xmobarColor "green" "" . shorten 100
-    ,   ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort def
+    ,   ppSort = (.scratchpadFilterOutWorkspace) <$> ppSort def
     }
 
 
