@@ -6,6 +6,7 @@ import qualified Data.Map as M
 import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Actions.GridSelect
+import XMonad.Actions.Volume
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
@@ -75,10 +76,10 @@ myKeys =
         , ((0, 0x1008FF02), spawn "xbacklight -inc 5")
         , ((0, 0x1008FF03), spawn "xbacklight -dec 5")
         -- volume control
-        , ((0, 0x1008ff13), spawn "amixer -q set Master 10%+")
-        , ((0, 0x1008ff11), spawn "amixer -q set Master 10%-")
-        , ((0, 0x1008ffb2), spawn "amixer -q set Capture toggle")
-        , ((0, 0x1008ff12), spawn "amixer -q set Master toggle")
+        , ((0, 0x1008ff13), void $ raiseVolume 10)
+        , ((0, 0x1008ff11), void $ lowerVolume 10)
+        , ((0, 0x1008ffb2), void $ toggleMuteChannels ["Capture"])
+        , ((0, 0x1008ff12), void toggleMute)
         -- Grid Select
         , ((mod4Mask, xK_g), goToSelected def)
         -- Screenshot
