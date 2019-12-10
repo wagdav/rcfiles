@@ -5,10 +5,6 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.local/bin:$PATH
 
-if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
-    . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-fi
-
 # Path to your oh-my-zsh installation.
 export ZSH=/home/dwagner/.oh-my-zsh
 
@@ -110,10 +106,6 @@ export EDITOR='vim'
 #
 alias t="todo-txt -d $HOME/.todo-txt/config -t"
 
-if [ -f "/usr/bin/direnv" ]; then
-    eval "$(direnv hook zsh)"
-fi
-
 alias ssh='TERM=xterm-color ssh'
 
 if [ -f "$HOME/.local/bin/aws-vault" ]; then
@@ -134,4 +126,17 @@ if [ -f "$HOME/.go/bin/go" ]; then
 
   export GOPATH="$HOME/go"
   export PATH=$PATH:"$GOPATH/bin"
+fi
+
+# Ruby
+if [ -f "$HOME/.rbenv/bin/rbenv" ]; then
+  export PATH=$PATH:"$HOME/.rbenv/bin"
+  eval "$(rbenv init -)"
+fi
+
+# Pyenv
+if [ -f "$HOME/.pyenv/bin/pyenv" ]; then
+  export PATH=$PATH:"$HOME/.pyenv/bin"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 fi
