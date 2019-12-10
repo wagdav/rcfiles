@@ -73,6 +73,7 @@ plugins=(
   pass
   terraform
   stack
+  virtualenv
 )
 
 JIRA_RAPID_BOARD="true"
