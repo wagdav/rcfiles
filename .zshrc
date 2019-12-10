@@ -140,3 +140,8 @@ if [ -f "$HOME/.pyenv/bin/pyenv" ]; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
+
+# Pipenv shell completion
+if [ -x "$(command -v pipenv)" ]; then
+    eval "$(pipenv --completion)"
+fi
