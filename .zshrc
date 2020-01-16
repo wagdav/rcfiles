@@ -66,7 +66,6 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   autojump
-  aws
   dirhistory
   git
   jira

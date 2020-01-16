@@ -69,7 +69,7 @@ myKeys =
     ((mod4Mask, xK_a), sendMessage MirrorShrink),
     ((mod4Mask, xK_z), sendMessage MirrorExpand),
     -- shell prompt
-    ((mod4Mask, xK_r), PShell.shellPrompt def),
+    ((mod4Mask .|. shiftMask, xK_r), PShell.shellPrompt def),
     -- password
     ((mod4Mask .|. shiftMask, xK_p), passPrompt def),
     -- toggle xmobar
