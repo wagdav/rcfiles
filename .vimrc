@@ -1,34 +1,38 @@
 set nocompatible
-filetype off
+
+" Install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 "Plugins
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'dkprice/vim-easygrep'
-Plugin 'editorconfig/editorconfig'
-Plugin 'ElmCast/elm-vim'
-Plugin 'fatih/vim-go'
-Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'hashivim/vim-terraform'
-Plugin 'kana/vim-altr'
-Plugin 'kana/vim-operator-user'
-Plugin 'LnL7/vim-nix'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'PProvost/vim-ps1'
-Plugin 'rhysd/vim-clang-format.git'
-Plugin 'saltstack/salt-vim'
-Plugin 'sbdchd/neoformat'
-Plugin 'sdiehl/vim-ormolu'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'vmchale/dhall-vim'
-Plugin 'VundleVim/Vundle.vim'
-call vundle#end()
+call plug#begin("~/.vim/bundle")
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dense-analysis/ale'
+Plug 'editorconfig/editorconfig'
+Plug 'ElmCast/elm-vim'
+Plug 'fatih/vim-go'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'hashivim/vim-terraform'
+Plug 'kana/vim-altr'
+Plug 'kana/vim-operator-user'
+Plug 'LnL7/vim-nix'
+Plug 'mattn/vim-lsp-settings'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'saltstack/salt-vim'
+Plug 'sdiehl/vim-ormolu'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-airline/vim-airline'
+Plug 'vmchale/dhall-vim'
+call plug#end()
 
 
 "Plugin configuration
@@ -46,12 +50,6 @@ let g:ctrlp_root_markers = ['.ctrlp']
 
 " Fugitive status line
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
-" YouCompleteMe
-set completeopt-=preview
-noremap <F2> :YcmCompleter GoToDeclaration<CR>
-noremap <S-F2> :YcmCompleter GoTo<CR>
-noremap <Leader>f :YcmCompleter FixIt<CR>
 
 " Syntastic
 let g:syntastic_go_checkers = ['go', 'gofmt', 'golint', 'govet']
@@ -149,10 +147,3 @@ let g:netrw_browsex_viewer="xdg-open"
 nmap ,d :b#<bar>bd#<CR>
 
 nmap <Leader>g :Ggrep <C-R>=expand("<cword>")<CR>
-
-" Convert to markdown using pandoc
-command! -nargs=* RunSilent
-      \ | execute ':silent !'.'<args>'
-      \ | execute ':redraw!'
-nmap <Leader>pc :RunSilent pandoc -o /tmp/vim-pandoc-out.html %<CR>
-nmap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.html<CR>
