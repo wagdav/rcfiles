@@ -51,8 +51,8 @@ let g:ctrlp_root_markers = ['.ctrlp']
 " Fugitive status line
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" Syntastic
-let g:syntastic_go_checkers = ['go', 'gofmt', 'golint', 'govet']
+" vim-lsp
+autocmd FileType python,go nmap gd <plug>(lsp-definition)
 
 "Other customizations
 filetype plugin indent on
