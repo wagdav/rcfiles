@@ -68,11 +68,9 @@ plugins=(
   autojump
   dirhistory
   git
-  jira
   pass
+  pyenv
   terraform
-  stack
-  virtualenv
 )
 
 JIRA_RAPID_BOARD="true"
