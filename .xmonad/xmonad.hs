@@ -34,6 +34,7 @@ main = do
         manageHook = myManageHook,
         logHook = myLogHook xmproc,
         layoutHook = myLayout,
+        terminal = "urxvt",
         workspaces = myWorkspaces,
         handleEventHook = myHandleEventHook
       }
