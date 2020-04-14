@@ -66,3 +66,6 @@ fi
 if [ -x "$(command -v pipenv)" ]; then
     eval "$(pipenv --completion)"
 fi
+
+# Nix experiment
+. $HOME/.nix-profile/etc/profile.d/nix.sh
