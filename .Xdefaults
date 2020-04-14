@@ -1,3 +1,5 @@
+URxvt*termName: xterm-256color
+
 ! transparency - true or false (default)
 URxvt*transparent:false
 

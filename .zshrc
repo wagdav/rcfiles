@@ -27,8 +27,6 @@ export EDITOR='vim'
 
 alias t="todo-txt -d $HOME/.todo-txt/config -t"
 
-alias ssh='TERM=xterm-color ssh'
-
 # AWS-Vault
 if [ -f "$HOME/.local/bin/aws-vault" ]; then
     export AWS_VAULT_BACKEND=pass
