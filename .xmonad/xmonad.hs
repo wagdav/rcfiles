@@ -34,13 +34,15 @@ main = do
         manageHook = myManageHook,
         logHook = myLogHook xmproc,
         layoutHook = myLayout,
-        terminal = "urxvt",
+        terminal = myTerminal,
         workspaces = myWorkspaces,
         handleEventHook = myHandleEventHook
       }
       `additionalKeys` myKeys
 
-myWorkspaces = ["1:web", "2:local", "3:local", "4:remote", "5:remote", "6", "7", "8", "9"]
+myTerminal = "alacritty"
+
+myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 myKeys =
   -- MPD keys
@@ -53,7 +55,7 @@ myKeys =
     -- CycleWS
     ((mod4Mask, xK_quoteleft), toggleSkip ["NSP"]),
     -- ScratchPad
-    ((mod4Mask, xK_s), scratchpadSpawnActionTerminal "urxvt"),
+    ((mod4Mask, xK_s), scratchpadSpawnActionCustom (unwords [myTerminal, "--class scratchpad"])),
     -- full screen
     ((mod4Mask, xK_F12), sendMessage $ Toggle "Full"),
     -- search
