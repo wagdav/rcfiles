@@ -1,3 +1,0 @@
-bind k any scrollUp(16)
-bind j any scrollDown(16)
-bind t any toggleOutline
