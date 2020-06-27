@@ -6,5 +6,6 @@ fi
 
 xset=$(command -v xset)
 if [ -x "$xset" ]; then
-    $xset +dpms;$xset s on
+    $xset +dpms
+    $xset s on
 fi
