@@ -50,7 +50,7 @@ let g:ctrlp_root_markers = ['.ctrlp']
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " vim-lsp
-autocmd FileType python,go nmap gd <plug>(lsp-definition)
+autocmd FileType python,go,rust nmap gd <plug>(lsp-definition)
 
 "Other customizations
 filetype plugin indent on
