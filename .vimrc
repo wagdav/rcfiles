@@ -81,48 +81,6 @@ set incsearch
 set ignorecase
 set smartcase
 
-" LatexSuite options
-" ==================
-let g:Tex_UseMakefile='1'
-let g:Tex_ViewRule_pdf = 'viewer'
-let g:Tex_ViewRule_dvi = 'okular'
-let g:Tex_DefaultTargetFormat = 'pdf'
-
-let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode -src-specials $*'
-
-" Set the warning messages to ignore.
-let g:Tex_IgnoredWarnings =
-\"Underfull\n".
-\"Overfull\n".
-\"specifier changed to\n".
-\"You have requested\n".
-\"Missing number, treated as zero.\n".
-\"There were undefined references\n".
-\"Citation %.%# undefined\n".
-\'LaTeX Font Warning:'"
-" This number N says that latex-suite should ignore the first N of the
-" above.
-let g:Tex_IgnoreLevel = 8
-
-
-"new environments for beamer presentation
-let g:Tex_Env_columns =
-    \"\\begin{columns}\<CR>\\column{.5\\textwidth}\<CR>".
-    \"\\column{.5\\textwidth}\<CR>".
-    \"\\end{columns}<++>"
-
-let g:Tex_Env_block =
-    \"\\begin{block}{<+block title+>}\<CR>".
-    \"<++>\<CR>".
-    \"\\end{block}<++>"
-
-let g:Tex_Env_frame =
-    \"\\begin{frame}\<CR>".
-    \"\\frametitle{<+frame title+>}\<CR>".
-    \"<++>\<CR>".
-    \"\\end{frame}<++>"
-
-
 "command to open my action list
 command! Gtd call SwitchToList()
 function! SwitchToList()
