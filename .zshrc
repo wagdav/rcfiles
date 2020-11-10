@@ -67,5 +67,4 @@ if [ -x "$(command -v pipenv)" ]; then
     eval "$(pipenv --completion)"
 fi
 
-# Nix experiment
-. $HOME/.nix-profile/etc/profile.d/nix.sh
+if [ -e /home/dwagner/.nix-profile/etc/profile.d/nix.sh ]; then . /home/dwagner/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
