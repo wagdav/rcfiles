@@ -14,6 +14,7 @@ Plug 'editorconfig/editorconfig'
 Plug 'kana/vim-altr'
 Plug 'kana/vim-operator-user'
 Plug 'LnL7/vim-nix'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
