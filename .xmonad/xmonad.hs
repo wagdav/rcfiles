@@ -80,11 +80,6 @@ myKeys =
     -- brighness control
     ((0, 0x1008FF02), spawn "xbacklight -inc 5"),
     ((0, 0x1008FF03), spawn "xbacklight -dec 5"),
-    -- volume control
-    ((0, 0x1008ff13), void $ raiseVolume 10),
-    ((0, 0x1008ff11), void $ lowerVolume 10),
-    ((0, 0x1008ffb2), void $ toggleMuteChannels ["Capture"]),
-    ((0, 0x1008ff12), void toggleMute),
     -- Grid Select
     ((mod4Mask, xK_g), goToSelected def),
     -- Screenshot
