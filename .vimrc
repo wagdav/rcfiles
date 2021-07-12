@@ -60,9 +60,6 @@ set spellsuggest=5
 
 syntax on
 
-"Remap \zz to toggle the value of 'scrolloff' between 0 and 999
-:nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>
-
 "Insert date
 nnoremap <F12> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F12> <C-R>=strftime("%Y-%m-%d")<CR>
@@ -76,17 +73,6 @@ set incsearch
 set ignorecase
 set smartcase
 
-"command to open my action list
-command! Gtd call SwitchToList()
-function! SwitchToList()
-    let number = bufnr("Dropbox/Apps/Notes for Android/")
-    if number == -1
-        edit $HOME/Dropbox/Apps/Notes\ for\ Android
-    else
-        exe 'buffer' number
-    endif
-endfunction
-
 "code
 set tags=./tags;/
 
@@ -96,5 +82,3 @@ let g:netrw_browsex_viewer="xdg-open"
 " Close buffer but not split window ',d'
 " https://stackoverflow.com/a/19619038/513809
 nmap ,d :b#<bar>bd#<CR>
-
-nmap <Leader>g :Ggrep <C-R>=expand("<cword>")<CR>
