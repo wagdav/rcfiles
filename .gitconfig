@@ -26,3 +26,5 @@
 	submodule = log
 [pull]
 	rebase = true
+[branch]
+	sort = authordate
