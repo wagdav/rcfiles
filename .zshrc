@@ -28,6 +28,7 @@ export LC_ALL=en_US.UTF-8
 export EDITOR='vim'
 
 alias t="todo-txt -d $HOME/.todo-txt/config -t"
+alias fd=fdfind
 
 # AWS CLI
 if [ -f "$HOME/.nix-profile/bin/aws_completer" ]; then
@@ -74,4 +75,8 @@ fi
 # Pipenv shell completion
 if [ -x "$(command -v pipenv)" ]; then
     eval "$(pipenv --completion)"
+fi
+
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+    . "$HOME"/.nix-profile/etc/profile.d/nix.sh
 fi
