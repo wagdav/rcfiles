@@ -9,6 +9,8 @@ input "type:keyboard" {
 output * background #000000 solid_color
 
 bindsym $mod+grave workspace back_and_forth
+bindsym $mod+Prior focus output left
+bindsym $mod+Next focus output right
 bindsym $mod+Shift+Prior move workspace to output left
 bindsym $mod+Shift+Next move workspace to output right
 bindsym $mod+Escape exec 'swaylock -f -c 000000'
@@ -20,3 +22,7 @@ exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
     timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
+
+for_window [class="zoom"] floating enable
+
+output 'Dell Inc. DELL P2721Q HTY3HF3' scale 2
