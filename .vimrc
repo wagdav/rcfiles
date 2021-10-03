@@ -15,11 +15,13 @@ Plug 'kana/vim-altr'
 Plug 'kana/vim-operator-user'
 Plug 'LnL7/vim-nix'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'Olical/conjure'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vmchale/dhall-vim'
+Plug 'kovisoft/paredit'
 "LSP
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -46,6 +48,9 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " vim-lsp
 autocmd FileType python,go,rust nmap gd <plug>(lsp-definition)
+
+" conjure
+let g:conjure#log#hud#enabled = v:false
 
 "Other customizations
 filetype plugin indent on
@@ -79,6 +84,4 @@ set tags=./tags;/
 " Viewer for key combination 'gx'
 let g:netrw_browsex_viewer="xdg-open"
 
-" Close buffer but not split window ',d'
-" https://stackoverflow.com/a/19619038/513809
-nmap ,d :b#<bar>bd#<CR>
+let maplocalleader = ","
