@@ -25,7 +25,7 @@ fi
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 alias t="todo-txt -d $HOME/.todo-txt/config -t"
 alias fd=fdfind
