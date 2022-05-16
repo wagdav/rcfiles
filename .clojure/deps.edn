@@ -1,4 +1,8 @@
 {
   :aliases {:cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.27.1"}}
-                        :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}}
-}
+                        :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
+
+            :cider-cljs {:extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.16"}
+                                      cider/piggieback {:mvn/version "0.5.3"}
+                                      cider/cider-nrepl {:mvn/version "0.27.1"}}
+                         :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.piggieback/wrap-cljs-repl]"]}}}
