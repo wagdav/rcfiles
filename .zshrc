@@ -10,6 +10,7 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     plugins=(
       autojump
       dirhistory
+      fzf
       git
       pass
       pyenv
