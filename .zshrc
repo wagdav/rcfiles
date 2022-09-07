@@ -13,6 +13,7 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
       dirhistory
       fzf
       git
+      kubectl
       pass
       pyenv
       terraform
