@@ -8,6 +8,7 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     ZSH_THEME="robbyrussell"
 
     plugins=(
+      aws
       autojump
       dirhistory
       fzf
@@ -27,6 +28,13 @@ export LC_ALL=en_US.UTF-8
 export EDITOR='vim'
 
 alias t="todo-txt -d $HOME/.todo-txt/config -t"
+
+# AWS CLI
+if [ -f "$HOME/.nix-profile/bin/aws_completer" ]; then
+    autoload bashcompinit && bashcompinit
+    autoload -Uz compinit && compinit
+    complete -C "$HOME/.nix-profile/bin/aws_completer" aws
+fi
 
 # AWS-Vault
 if [ -f "$HOME/.local/bin/aws-vault" ]; then
