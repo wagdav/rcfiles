@@ -91,3 +91,5 @@ if [ -d "$HOME/Library/Python/3.10/bin" ]; then
 fi
 
 unalias fd
+
+export JAVA_TOOL_OPTIONS="-Djavax.net.ssl.trustStore=/Users/david.wagner/.gradle/castore-nexthink -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.keyStore=/Users/david.wagner/.gradle/castore-nexthink -Djavax.net.ssl.keyStorePassword=changeit"
