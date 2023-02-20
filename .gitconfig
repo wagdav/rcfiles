@@ -1,6 +1,7 @@
 [user]
     name = David Wagner
     email = david.wagner@nexthink.com
+    signingkey = ~/.ssh/id_signing
 
 [color]
     diff = auto
@@ -30,3 +31,9 @@
 	sort = authordate
 [init]
 	defaultBranch = main
+[commit]
+    gpgsign = true
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    allowedSignersFile = ~/.ssh/allowed_signers
