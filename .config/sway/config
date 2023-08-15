@@ -8,6 +8,9 @@ input "type:keyboard" {
 
 output * background #000000 solid_color
 
+set $term alacritty
+bindsym --no-warn $mod+Return exec $term
+
 bindsym $mod+grave workspace back_and_forth
 bindsym $mod+Prior focus output left
 bindsym $mod+Next focus output right
