@@ -30,8 +30,6 @@ exec swayidle -w \
 for_window [class="zoom"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 
-output 'Dell Inc. DELL P2721Q HTY3HF3' scale 2
-
 # Audio control
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
