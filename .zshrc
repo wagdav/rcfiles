@@ -8,11 +8,13 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     ZSH_THEME="robbyrussell"
 
     plugins=(
-      aws
       autojump
+      aws
       dirhistory
       fzf
+      gh
       git
+      gradle
       kubectl
       pass
       pyenv
