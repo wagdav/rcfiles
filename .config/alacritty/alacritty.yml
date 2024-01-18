@@ -1,4 +1,6 @@
 font:
+  normal:
+    family: "Noto Sans Mono"
   size: 8.0
 
 colors:
