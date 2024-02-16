@@ -14,6 +14,7 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
       fzf
       gh
       git
+      gitfast
       gradle
       kubectl
       pass
