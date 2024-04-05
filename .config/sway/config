@@ -19,8 +19,8 @@ bindsym $mod+Shift+Prior move workspace to output left
 bindsym $mod+Shift+Next move workspace to output right
 bindsym $mod+Escape exec 'swaylock -f -c 000000'
 
-bindsym $mod+p       exec grimshot copy area
-bindsym $mod+Shift+p exec grimshot copy window
+bindsym $mod+Print       exec grimshot copy area
+bindsym $mod+Shift+Print exec grimshot copy window
 
 smart_borders on
 default_border pixel 1
