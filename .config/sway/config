@@ -25,7 +25,7 @@ bindsym $mod+Shift+Print exec grimshot copy window
 smart_borders on
 default_border pixel 1
 
-exec swayidle -w \
+exec chayang && swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
     timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
