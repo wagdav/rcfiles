@@ -1,0 +1,13 @@
+[colors.primary]
+background = "#000000"
+
+[font]
+size = 8.0
+
+[font.normal]
+family = "Noto Sans Mono"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
