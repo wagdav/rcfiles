@@ -1,0 +1,5 @@
+[info]
+mode = brief
+
+[keys]
+Delete = exec rm "%"
