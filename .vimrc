@@ -84,3 +84,6 @@ set tags=./tags;/
 let g:netrw_browsex_viewer="xdg-open"
 
 let maplocalleader = ","
+
+" map <Esc> to exit terminal-mode:
+:tnoremap <Esc> <C-\><C-n>
