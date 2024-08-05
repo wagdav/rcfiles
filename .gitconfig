@@ -30,4 +30,4 @@
 [init]
 	defaultBranch = main
 [includeIf "gitdir:~/work/"]
-    path = .gitconfig.nexthink.inc
+    path = .gitconfig.work.inc
