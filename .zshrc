@@ -100,3 +100,4 @@ if [ -d "$HOME/Library/Python/3.10/bin" ]; then
 fi
 
 unalias fd
+LESS=FRX  # https://github.com/cli/cli/discussions/3685
