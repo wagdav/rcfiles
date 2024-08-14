@@ -50,6 +50,12 @@ if [ -f "$HOME/.local/bin/aws-vault" ]; then
     eval "$($HOME/.local/bin/aws-vault --completion-script-zsh)"
 fi
 
+# OpenShift CLI
+if [ $commands[oc] ]; then
+  source <(oc completion zsh)
+  compdef _oc oc
+fi
+
 # Yarn
 if [ -f "$HOME/.yarn/bin/yarn" ]; then
     export PATH="$HOME/.yarn/bin":$PATH
