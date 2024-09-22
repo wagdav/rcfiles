@@ -9,8 +9,6 @@ input "type:keyboard" {
 output * background #000000 solid_color
 output 'Dell Inc. DELL P2721Q HTY3HF3' mode 3840x2160 scale 2
 
-set $term alacritty
-bindsym --no-warn $mod+Return exec $term
 bindsym --no-warn $mod+d exec wmenu-run
 
 bindsym $mod+grave workspace back_and_forth
