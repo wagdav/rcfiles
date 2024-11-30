@@ -41,3 +41,6 @@ bindsym XF86Launch1 exec pavucontrol
 
 bindgesture swipe:right workspace next
 bindgesture swipe:left workspace prev
+
+bindsym --no-warn $mod+0 workspace number 10:🎄
+bindsym --no-warn $mod+Shift+0 move container to workspace number 10:🎄
