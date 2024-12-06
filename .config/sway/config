@@ -30,14 +30,7 @@ exec swayidle -w \
     before-sleep 'swaylock -f -c 000000'
 
 for_window [class="zoom"] floating enable
-for_window [app_id="pavucontrol"] floating enable
-
-# Audio control
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86Launch1 exec pavucontrol
+for_window [app_id="pwvucontrol"] floating enable
 
 bindgesture swipe:right workspace next
 bindgesture swipe:left workspace prev
