@@ -31,9 +31,6 @@ export LC_ALL=en_US.UTF-8
 
 export EDITOR='nvim'
 
-alias t="todo-txt -d $HOME/.todo-txt/config -t"
-alias fd=fdfind
-
 # AWS CLI
 if [ -f "$HOME/.nix-profile/bin/aws_completer" ]; then
     autoload bashcompinit && bashcompinit
@@ -99,5 +96,6 @@ if [ -d "$HOME/Library/Python/3.10/bin" ]; then
     export PATH="$HOME/Library/Python/3.10/bin":$PATH
 fi
 
-unalias fd
+alias vi=nvim
+
 LESS=FRX  # https://github.com/cli/cli/discussions/3685
