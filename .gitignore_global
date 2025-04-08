@@ -1,6 +1,7 @@
 tags
 *.swp
 *.swo
+*.bkp
 
 .gdb_history
 compile_commands.json
