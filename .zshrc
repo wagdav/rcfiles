@@ -38,15 +38,6 @@ if [ -f "$HOME/.nix-profile/bin/aws_completer" ]; then
     complete -C "$HOME/.nix-profile/bin/aws_completer" aws
 fi
 
-# AWS-Vault
-if [ -f "$HOME/.local/bin/aws-vault" ]; then
-    export AWS_VAULT_BACKEND=pass
-    export AWS_VAULT_PASS_PREFIX=aws-vault
-    export AWS_ASSUME_ROLE_TTL=1h
-    export AWS_SESSION_TTL=8h
-    eval "$($HOME/.local/bin/aws-vault --completion-script-zsh)"
-fi
-
 # OpenShift CLI
 if [ $commands[oc] ]; then
   source <(oc completion zsh)
