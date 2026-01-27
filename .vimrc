@@ -13,7 +13,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig'
 Plug 'kana/vim-altr'
 Plug 'kana/vim-operator-user'
-Plug 'gpanders/nvim-parinfer'
+Plug 'eraserhd/parinfer-rust', {'do': 'nix shell nixpkgs#cargo nixpkgs#gcc --command build --release'}
 Plug 'LnL7/vim-nix'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Olical/conjure'
