@@ -38,6 +38,10 @@ if [ -f "$HOME/.nix-profile/bin/aws_completer" ]; then
     complete -C "$HOME/.nix-profile/bin/aws_completer" aws
 fi
 
+if [ -f "$HOME/ZscalerRootCertificate-2048-SHA256-Feb2025.crt" ]; then
+    export AWS_CA_BUNDLE=~/ZscalerRootCertificate-2048-SHA256-Feb2025.crt
+fi
+
 # OpenShift CLI
 if [ $commands[oc] ]; then
   source <(oc completion zsh)
