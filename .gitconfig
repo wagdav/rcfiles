@@ -31,3 +31,5 @@
 	defaultBranch = main
 [includeIf "gitdir:~/work/"]
     path = .gitconfig.work.inc
+[include]
+    path = .gitconfig.extra.inc
