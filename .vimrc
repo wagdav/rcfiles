@@ -13,7 +13,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig'
 Plug 'kana/vim-altr'
 Plug 'kana/vim-operator-user'
-Plug 'eraserhd/parinfer-rust', {'do': 'nix shell nixpkgs#cargo nixpkgs#gcc --command build --release'}
+"Plug 'eraserhd/parinfer-rust', {'do': 'nix shell nixpkgs#cargo nixpkgs#gcc --command build --release'}
+Plug 'julienvincent/nvim-paredit'
 Plug 'LnL7/vim-nix'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Olical/conjure'
@@ -28,6 +29,9 @@ Plug 'clojure-vim/vim-jack-in'
 Plug 'radenling/vim-dispatch-neovim'
 call plug#end()
 
+lua << EOF
+  require('nvim-paredit').setup()
+EOF
 
 "Plugin configuration
 
