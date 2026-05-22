@@ -9,6 +9,8 @@ input "type:keyboard" {
 output * background #000000 solid_color
 output 'Dell Inc. DELL U2723QE 84L6L04' scale 2
 
+seat "*" xcursor_theme Adwaita 18
+
 bindsym --no-warn $mod+d exec wmenu-run
 
 bindsym $mod+grave workspace back_and_forth
