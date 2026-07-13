@@ -46,9 +46,6 @@ let g:ctrlp_root_markers = ['.ctrlp']
 " Fugitive status line
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" vim-lsp
-autocmd FileType python,go,rust nmap gd <plug>(lsp-definition)
-
 " conjure
 let g:conjure#log#hud#enabled = v:false
 
