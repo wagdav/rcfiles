@@ -57,4 +57,18 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 -- LSP (see :help lspconfig-all)
 vim.lsp.enable("docker_language_server")
 vim.lsp.enable("pylsp")
+
+vim.lsp.config('rust_analyzer', {
+  cmd = {
+    "nix", "shell",
+     "nixpkgs#rust-analyzer", "nixpkgs#rustc", "nixpkgs#cargo",
+     "--command", "rust-analyzer"
+  },
+  root_dir = function(bufnr, on_dir)
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+    on_dir(vim.fs.root(fname, { "Cargo.toml", "rust-project.json", ".git" }))
+  end,
+})
+vim.lsp.enable("rust_analyzer")
+
 vim.lsp.enable("ts_ls")
