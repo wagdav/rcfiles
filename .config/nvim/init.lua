@@ -5,10 +5,6 @@ vim.pack.add({
   "https://github.com/gpanders/nvim-parinfer",
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/Olical/conjure",
-  {
-    src = "https://github.com/nvim-treesitter/nvim-treesitter",
-    version = "main",
-  },
   "https://github.com/tpope/vim-fugitive",
   "https://github.com/tpope/vim-surround",
   "https://github.com/tpope/vim-unimpaired",
@@ -58,25 +54,7 @@ vim.g["conjure#log#hud#enabled"] = false
 -- Map <Esc> to exit terminal-mode
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
--- LSP
+-- LSP (see :help lspconfig-all)
+vim.lsp.enable("docker_language_server")
 vim.lsp.enable("pylsp")
 vim.lsp.enable("ts_ls")
-vim.lsp.enable("docker_language_server")
-
--- TreeSitter
-require("nvim-treesitter").install({
-  "clojure",
-  "go",
-  "nix",
-  "python",
-  "rust",
-  "typescript",
-  "vim",
-  "vimdoc",
-})
-
-vim.api.nvim_create_autocmd("PackChanged", {
-  callback = function()
-    pcall(require("nvim-treesitter").update)
-  end,
-})
