@@ -71,4 +71,13 @@ vim.lsp.config('rust_analyzer', {
 })
 vim.lsp.enable("rust_analyzer")
 
+vim.lsp.config('zls', {
+  cmd = {
+    "nix", "shell",
+    "nixpkgs#zig", "nixpkgs#zls",
+    "--command", "zls"
+  },
+})
+vim.lsp.enable("zls")
+
 vim.lsp.enable("ts_ls")
