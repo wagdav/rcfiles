@@ -55,6 +55,22 @@ vim.g["conjure#log#hud#enabled"] = false
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 -- LSP (see :help lspconfig-all)
+
+-- Format on save
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client:supports_method("textDocument/formatting") then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = args.buf,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 2000 })
+        end,
+      })
+    end
+  end,
+})
+
 vim.lsp.enable("docker_language_server")
 vim.lsp.enable("pylsp")
 
