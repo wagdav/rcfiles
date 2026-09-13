@@ -11,6 +11,9 @@ output 'Dell Inc. DELL U2723QE 84L6L04' scale 2
 
 seat "*" xcursor_theme Adwaita 18
 
+exec foot --server
+bindsym --no-warn $mod+Return exec footclient
+
 bindsym --no-warn $mod+d exec wmenu-run
 
 bindsym $mod+grave workspace back_and_forth
