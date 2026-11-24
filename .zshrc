@@ -45,10 +45,6 @@ export LC_ALL=en_US.UTF-8
 
 export EDITOR='nvim'
 
-if [ -f "$HOME/ZscalerRootCertificate-2048-SHA256-Feb2025.crt" ]; then
-    export AWS_CA_BUNDLE=~/ZscalerRootCertificate-2048-SHA256-Feb2025.crt
-fi
-
 # Yarn
 if [ -f "$HOME/.yarn/bin/yarn" ]; then
     export PATH="$HOME/.yarn/bin":$PATH
