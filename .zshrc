@@ -4,6 +4,20 @@ fi
 
 export PATH=$HOME/.local/bin:$PATH
 
+# Nix (must come before oh-my-zsh so plugins see nix-installed tools)
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+    . "$HOME"/.nix-profile/etc/profile.d/nix.sh
+fi
+
+# Nix profile completions (must be on fpath before compinit / oh-my-zsh)
+if [ -d "$HOME/.nix-profile/share/zsh/site-functions" ]; then
+    fpath=("$HOME/.nix-profile/share/zsh/site-functions" $fpath)
+fi
+
 if [ -d "$HOME/.oh-my-zsh" ]; then
     ZSH_THEME="robbyrussell"
 
@@ -31,21 +45,8 @@ export LC_ALL=en_US.UTF-8
 
 export EDITOR='nvim'
 
-# AWS CLI
-if [ -f "$HOME/.nix-profile/bin/aws_completer" ]; then
-    autoload bashcompinit && bashcompinit
-    autoload -Uz compinit && compinit
-    complete -C "$HOME/.nix-profile/bin/aws_completer" aws
-fi
-
 if [ -f "$HOME/ZscalerRootCertificate-2048-SHA256-Feb2025.crt" ]; then
     export AWS_CA_BUNDLE=~/ZscalerRootCertificate-2048-SHA256-Feb2025.crt
-fi
-
-# OpenShift CLI
-if [ $commands[oc] ]; then
-  source <(oc completion zsh)
-  compdef _oc oc
 fi
 
 # Yarn
@@ -66,31 +67,6 @@ if [ -f "$HOME/.rbenv/bin/rbenv" ]; then
   export PATH=$PATH:"$HOME/.rbenv/bin"
   eval "$(rbenv init -)"
 fi
-
-# Pyenv
-if [ -f "$HOME/.pyenv/bin/pyenv" ]; then
-  export PATH=$PATH:"$HOME/.pyenv/bin"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-# Pipenv shell completion
-if [ -x "$(command -v pipenv)" ]; then
-    eval "$(pipenv --completion)"
-fi
-
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-
-if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
-    . "$HOME"/.nix-profile/etc/profile.d/nix.sh
-fi
-
-if [ -d "$HOME/Library/Python/3.10/bin" ]; then
-    export PATH="$HOME/Library/Python/3.10/bin":$PATH
-fi
-
 alias vi=nvim
 
 LESS=FRX  # https://github.com/cli/cli/discussions/3685
