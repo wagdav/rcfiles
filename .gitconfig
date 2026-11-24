@@ -14,21 +14,21 @@
     exec = "!exec "
 [core]
     excludesfile = ~/.gitignore_global
-	pager = less -r
+    pager = less -r
 [color "diff"]
-	whitespace = red reverse
+    whitespace = red reverse
 [push]
-	default = simple
+    default = simple
 [rerere]
-	enabled = 1
+    enabled = 1
 [diff]
-	submodule = log
+    submodule = log
 [pull]
-	rebase = true
+    rebase = true
 [branch]
-	sort = authordate
+    sort = authordate
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [includeIf "gitdir:~/work/"]
     path = .gitconfig.work.inc
 [include]
